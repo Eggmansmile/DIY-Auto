@@ -1,0 +1,22 @@
+# Python env + caches
+.venv/
+__pycache__/
+# Video render output (4+ GB); scripts, remotion src and the final mp4 stay
+Video/frames/
+Video/stills/
+Video/render.log
+node_modules/
+# Local clone of the Fritzing parts library
+Fritzing/.fritzing-parts/
+# Third-party servo model, licence not ours to redistribute
+CAD/ref/SpringRC*
+# Backups, slicer logs, KiCad locks
+*.FCBak
+*.kicad_prl
+*-backups/
+*.lck
+00000.log
+result.json
+KiCad/.history/
+# Older gerber revisions; only the newest is published
+KiCad/DIY-Auto_rev[4-7]_gerbers_PCBWay.zip

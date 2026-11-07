@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"5d81b89369d2c3b5","type":"file","file":"Projects/DIY Auto Project/Auto Design.excalidraw.md","x":1940,"y":-320,"width":1220,"height":2080},
+		{"id":"b3530f983d8c9e1b","type":"file","file":"Projects/DIY Auto Project/DIY Auto.md","x":100,"y":-1140,"width":1140,"height":1360},
+		{"id":"4a025343518bcf45","type":"file","file":"Projects/DIY Auto Project/Taken DIY-Auto.md","x":-1540,"y":-460,"width":920,"height":1160}
+	],
+	"edges":[
+		{"id":"bf63c1d45ec998fc","fromNode":"b3530f983d8c9e1b","fromSide":"right","toNode":"5d81b89369d2c3b5","toSide":"left"},
+		{"id":"8ac50a9362df858c","fromNode":"b3530f983d8c9e1b","fromSide":"left","toNode":"4a025343518bcf45","toSide":"right"}
+	]
+}

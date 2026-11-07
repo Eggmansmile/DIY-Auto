@@ -1,0 +1,416 @@
+[
+ {
+  "name": "body",
+  "subassembly": "1 frame",
+  "kind": "printed",
+  "qty": 1,
+  "material": "ASA black, one piece (v5: chassis + nose merged), floor on the bed",
+  "colour": "#8fa3b8",
+  "volume_mm3": 159347.6
+ },
+ {
+  "name": "clamp_L",
+  "subassembly": "1 frame",
+  "kind": "printed",
+  "qty": 1,
+  "material": "ASA black, split face on the bed",
+  "colour": "#e8833a",
+  "volume_mm3": 4654.1
+ },
+ {
+  "name": "clamp_R",
+  "subassembly": "1 frame",
+  "kind": "printed",
+  "qty": 1,
+  "material": "ASA black, split face on the bed",
+  "colour": "#e8833a",
+  "volume_mm3": 4654.1
+ },
+ {
+  "name": "insert_M3x6_strap",
+  "subassembly": "1 frame",
+  "kind": "fastener",
+  "qty": 8,
+  "material": "HEAT-SET INSERT M3x6: body, top of the 8 motor-saddle ears (press in with the soldering iron before the motor goes in)",
+  "colour": "#c9a227",
+  "volume_mm3": 348.6
+ },
+ {
+  "name": "screw_M3x10_strap",
+  "subassembly": "1 frame",
+  "kind": "fastener",
+  "qty": 8,
+  "material": "BOLT M3x10 socket head: through the motor strap clamp into the ear insert",
+  "colour": "#303030",
+  "volume_mm3": 930.2
+ },
+ {
+  "name": "insert_M3x6_pcb",
+  "subassembly": "1 frame",
+  "kind": "fastener",
+  "qty": 4,
+  "material": "HEAT-SET INSERT M3x6: body, top of the 4 PCB standoffs",
+  "colour": "#c9a227",
+  "volume_mm3": 174.3
+ },
+ {
+  "name": "motor_L",
+  "subassembly": "1 frame",
+  "kind": "reference",
+  "qty": 1,
+  "material": "DC motor 24x18.3 can (STL in CAD/ref)",
+  "colour": "#c0c4c8",
+  "volume_mm3": 12053.4
+ },
+ {
+  "name": "motor_R",
+  "subassembly": "1 frame",
+  "kind": "reference",
+  "qty": 1,
+  "material": "DC motor 24x18.3 can (STL in CAD/ref)",
+  "colour": "#c0c4c8",
+  "volume_mm3": 12053.4
+ },
+ {
+  "name": "rim_rear_L",
+  "subassembly": "2 rear drive",
+  "kind": "printed",
+  "qty": 1,
+  "material": "PLA (ASA later), 0.2 nozzle (m0.5 teeth)",
+  "colour": "#f2f2f2",
+  "volume_mm3": 28365.6
+ },
+ {
+  "name": "tyre_rear_L",
+  "subassembly": "2 rear drive",
+  "kind": "printed",
+  "qty": 1,
+  "material": "TPU 90A",
+  "colour": "#222222",
+  "volume_mm3": 22949.2
+ },
+ {
+  "name": "rim_rear_R",
+  "subassembly": "2 rear drive",
+  "kind": "printed",
+  "qty": 1,
+  "material": "PLA (ASA later), 0.2 nozzle (m0.5 teeth)",
+  "colour": "#f2f2f2",
+  "volume_mm3": 28365.6
+ },
+ {
+  "name": "tyre_rear_R",
+  "subassembly": "2 rear drive",
+  "kind": "printed",
+  "qty": 1,
+  "material": "TPU 90A",
+  "colour": "#222222",
+  "volume_mm3": 22949.2
+ },
+ {
+  "name": "bearing_MR105_rear",
+  "subassembly": "2 rear drive",
+  "kind": "bought",
+  "qty": 4,
+  "material": "MR105-2RS 5x10x4",
+  "colour": "#555a60",
+  "volume_mm3": 897.8
+ },
+ {
+  "name": "axle_bolt_M5x40",
+  "subassembly": "2 rear drive",
+  "kind": "fastener",
+  "qty": 2,
+  "material": "BOLT M5x40 socket head: rear axle, from the wheel side (M5x30 is too short for the nylock)",
+  "colour": "#303030",
+  "volume_mm3": 1823.7
+ },
+ {
+  "name": "nut_M5_rear",
+  "subassembly": "2 rear drive",
+  "kind": "fastener",
+  "qty": 2,
+  "material": "PLAIN NUT M5 (no insert): dropped into the slot in the axle tower from the top, tighten fully (clamps the inner races, the bolt does not turn)",
+  "colour": "#b8bcc2",
+  "volume_mm3": 286.3
+ },
+ {
+  "name": "shim_rear",
+  "subassembly": "2 rear drive",
+  "kind": "bought",
+  "qty": 2,
+  "material": "Shim washer 5x7x0.5 stainless (inner race only)",
+  "colour": "#b8bcc2",
+  "volume_mm3": 16.4
+ },
+ {
+  "name": "pinion",
+  "subassembly": "2 rear drive",
+  "kind": "reference",
+  "qty": 2,
+  "material": "10T m0.5 brass on the motor (have)",
+  "colour": "#c9a227",
+  "volume_mm3": 185.8
+ },
+ {
+  "name": "rim_front_L",
+  "subassembly": "3 front wheels",
+  "kind": "printed",
+  "qty": 1,
+  "material": "PLA (ASA later)",
+  "colour": "#f2f2f2",
+  "volume_mm3": 4746.0
+ },
+ {
+  "name": "tyre_front_L",
+  "subassembly": "3 front wheels",
+  "kind": "printed",
+  "qty": 1,
+  "material": "TPU 90A",
+  "colour": "#222222",
+  "volume_mm3": 6205.2
+ },
+ {
+  "name": "rim_front_R",
+  "subassembly": "3 front wheels",
+  "kind": "printed",
+  "qty": 1,
+  "material": "PLA (ASA later)",
+  "colour": "#f2f2f2",
+  "volume_mm3": 4746.0
+ },
+ {
+  "name": "tyre_front_R",
+  "subassembly": "3 front wheels",
+  "kind": "printed",
+  "qty": 1,
+  "material": "TPU 90A",
+  "colour": "#222222",
+  "volume_mm3": 6205.2
+ },
+ {
+  "name": "bearing_MR105_front",
+  "subassembly": "3 front wheels",
+  "kind": "bought",
+  "qty": 4,
+  "material": "MR105-2RS 5x10x4",
+  "colour": "#555a60",
+  "volume_mm3": 897.8
+ },
+ {
+  "name": "knuckle_L",
+  "subassembly": "4 steering",
+  "kind": "printed",
+  "qty": 1,
+  "material": "ASA black, stands on its flat feet (inner side down), spacer up",
+  "colour": "#e8833a",
+  "volume_mm3": 3787.6
+ },
+ {
+  "name": "knuckle_R",
+  "subassembly": "4 steering",
+  "kind": "printed",
+  "qty": 1,
+  "material": "ASA black, stands on its flat feet (inner side down), spacer up",
+  "colour": "#e8833a",
+  "volume_mm3": 3787.6
+ },
+ {
+  "name": "axle_bolt_M5x20",
+  "subassembly": "4 steering",
+  "kind": "fastener",
+  "qty": 2,
+  "material": "BOLT M5x20 socket head: front axle from the wheel side, threadlocker",
+  "colour": "#303030",
+  "volume_mm3": 1063.2
+ },
+ {
+  "name": "nut_M5_front",
+  "subassembly": "4 steering",
+  "kind": "fastener",
+  "qty": 2,
+  "material": "PLAIN NUT M5 (no insert): in the hex pocket on the inside of the knuckle, before the knuckle goes on",
+  "colour": "#b8bcc2",
+  "volume_mm3": 286.3
+ },
+ {
+  "name": "shim_front",
+  "subassembly": "4 steering",
+  "kind": "bought",
+  "qty": 2,
+  "material": "Shim washer 5x7x0.5 stainless (inner race only)",
+  "colour": "#b8bcc2",
+  "volume_mm3": 16.4
+ },
+ {
+  "name": "servo",
+  "subassembly": "4 steering",
+  "kind": "bought",
+  "qty": 1,
+  "material": "SpringRC SM-S2309S (have), upright, body through the floor, tabs held down by the 2 printed clamp bars",
+  "colour": "#1a1a1a",
+  "volume_mm3": 6942.4
+ },
+ {
+  "name": "servo_clamp",
+  "subassembly": "4 steering",
+  "kind": "printed",
+  "qty": 2,
+  "material": "ASA black, 2 flat bars 4.5 mm over the servo tabs (one STL holds both)",
+  "colour": "#e8833a",
+  "volume_mm3": 1934.8
+ },
+ {
+  "name": "insert_M3x6_servo",
+  "subassembly": "4 steering",
+  "kind": "fastener",
+  "qty": 4,
+  "material": "HEAT-SET INSERT M3x6: body, top of the 2 servo towers (4x), before the servo goes in",
+  "colour": "#c9a227",
+  "volume_mm3": 174.3
+ },
+ {
+  "name": "screw_M3x10_servo",
+  "subassembly": "4 steering",
+  "kind": "fastener",
+  "qty": 4,
+  "material": "BOLT M3x10 socket head: through the servo clamp bars into the tower inserts",
+  "colour": "#303030",
+  "volume_mm3": 465.1
+ },
+ {
+  "name": "servo_horn",
+  "subassembly": "4 steering",
+  "kind": "printed",
+  "qty": 1,
+  "material": "ASA black, printed horn 4 mm: press onto the 4.76 spline (bore 4.78) (drop of CA if loose); the tie rods on the pin keep it down; top face on the bed",
+  "colour": "#e8833a",
+  "volume_mm3": 1065.0
+ },
+ {
+  "name": "tie_rod_L",
+  "subassembly": "4 steering",
+  "kind": "printed",
+  "qty": 1,
+  "material": "ASA black, 3.5 x 7 flat, top on the bed; pivots on M4 + 2 jammed nuts, must turn freely",
+  "colour": "#e8833a",
+  "volume_mm3": 684.3
+ },
+ {
+  "name": "tie_rod_R",
+  "subassembly": "4 steering",
+  "kind": "printed",
+  "qty": 1,
+  "material": "ASA black, 3.5 x 7 flat, top on the bed; pivots on M4 + 2 jammed nuts, must turn freely",
+  "colour": "#e8833a",
+  "volume_mm3": 903.6
+ },
+ {
+  "name": "screw_M4_steering",
+  "subassembly": "4 steering",
+  "kind": "fastener",
+  "qty": 3,
+  "material": "BOLT M4x20 (horn pin) + M4x25 (left arm) + M4x30 (right arm): from below, head under the horn / arm boss",
+  "colour": "#303030",
+  "volume_mm3": 1127.1
+ },
+ {
+  "name": "nut_M4_steering",
+  "subassembly": "4 steering",
+  "kind": "fastener",
+  "qty": 6,
+  "material": "2 PLAIN NUTS M4 per pivot, on top of the tie rods: jam them (first snug, back off 1/8, lock the second); the rods must turn freely",
+  "colour": "#b8bcc2",
+  "volume_mm3": 571.4
+ },
+ {
+  "name": "kingpin_M4x30",
+  "subassembly": "4 steering",
+  "kind": "fastener",
+  "qty": 2,
+  "material": "BOLT M4x30 socket head: kingpin, head down through both knuckle lugs and the beam",
+  "colour": "#303030",
+  "volume_mm3": 877.1
+ },
+ {
+  "name": "nut_M4_kingpin",
+  "subassembly": "4 steering",
+  "kind": "fastener",
+  "qty": 4,
+  "material": "2 PLAIN NUTS M4 per kingpin, on top: first one until the play is gone, back off 1/8 turn, hold it and lock the second against it",
+  "colour": "#b8bcc2",
+  "volume_mm3": 380.9
+ },
+ {
+  "name": "buck_LM2596",
+  "subassembly": "5 electronics",
+  "kind": "bought",
+  "qty": 1,
+  "material": "LM2596 module 43x21 on the PCB (J6/J7): trimpot to 5.0 V first, then 2x M3x10 + nut, pads soldered with wire stubs",
+  "colour": "#1a3a8a",
+  "volume_mm3": 10687.0
+ },
+ {
+  "name": "spacer_buck",
+  "subassembly": "5 electronics",
+  "kind": "printed",
+  "qty": 2,
+  "material": "ASA black spacer \u00d86 x 3, M3 hole: between LM2596 and PCB (plastic, a metal nut would touch IN+)",
+  "colour": "#e0e0e0",
+  "volume_mm3": 111.9
+ },
+ {
+  "name": "screw_M3x10_buck",
+  "subassembly": "5 electronics",
+  "kind": "fastener",
+  "qty": 2,
+  "material": "BOLT M3x10 socket head: LM2596 hole -> printed spacer -> PCB",
+  "colour": "#303030",
+  "volume_mm3": 232.5
+ },
+ {
+  "name": "nut_M3_buck",
+  "subassembly": "5 electronics",
+  "kind": "fastener",
+  "qty": 2,
+  "material": "NUT M3 (ISO 4032) under the PCB, 2.5 mm above the battery",
+  "colour": "#b8bcc2",
+  "volume_mm3": 91.5
+ },
+ {
+  "name": "battery_2S",
+  "subassembly": "5 electronics",
+  "kind": "bought",
+  "qty": 1,
+  "material": "ERYNK 7.4 V 1500 mAh 2S pack (80x41x18.72 measured), JST BEC, in a 3 mm floor pocket + elastic band",
+  "colour": "#2f5fb3",
+  "volume_mm3": 61401.6
+ },
+ {
+  "name": "pcb_envelope",
+  "subassembly": "5 electronics",
+  "kind": "reference",
+  "qty": 1,
+  "material": "PCB 100x70 + 2 mm leads (collision check only)",
+  "colour": "#1f6b3a",
+  "volume_mm3": 19728.0
+ },
+ {
+  "name": "devkit_ESP32",
+  "subassembly": "5 electronics",
+  "kind": "bought",
+  "qty": 1,
+  "material": "ESP32 DevKit v1 30-pin (Heemol, have)",
+  "colour": "#202020",
+  "volume_mm3": 3459.2
+ },
+ {
+  "name": "screw_M3x6_pcb",
+  "subassembly": "5 electronics",
+  "kind": "fastener",
+  "qty": 4,
+  "material": "BOLT M3x6 socket head: through the PCB corner hole into the standoff insert (max M3x10)",
+  "colour": "#303030",
+  "volume_mm3": 389.1
+ }
+]

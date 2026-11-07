@@ -1,0 +1,7 @@
+# Strip local absolute paths on commit; the working copy keeps them for KiCad
+*.md filter=homepath
+*.net filter=homepath
+*.kicad_bbrd filter=homepath
+*.kicad_sch filter=homepath
+*.kicad_pcb filter=homepath
+*.kicad_pro filter=homepath
