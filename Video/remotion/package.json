@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "studio": "remotion studio",
-    "render": "remotion render Assembly ../DIYAuto_assembly_v5.mp4"
+    "render": "remotion render Assembly ../DIYAuto_assembly_v1.mp4"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

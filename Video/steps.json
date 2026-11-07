@@ -1,73 +1,461 @@
 {
-  "fps": 30,
-  "intro_frames": 75,
-  "step_frames": 96,
-  "fly_frames": 36,
-  "outro_frames": 150,
-  "overview_cam": {"target": [60, 0, 22], "az": -135, "el": 32, "dist": 420},
-  "steps": [
-    {"title": "Heat inserts first",
-     "parts": [["insert_M3x6_strap", "up", 35], ["insert_M3x6_pcb", "up", 35], ["insert_M3x6_buck", "up", 35], ["insert_M3x6_servo", "up", 35]],
-     "cam": {"target": [40, 0, 25], "az": -125, "el": 48, "dist": 360},
-     "lines": ["18× M3x6 heat insert: 8 motor ears, 4 PCB standoffs, 2 buck bosses, 4 servo towers",
-               "Do them all now, before anything else is mounted"],
-     "tip": "Iron 240–250 °C for ASA (200–220 °C for PLA). Press slowly and straight until flush, hold 10 s while it cools."},
-    {"title": "Motors with pinions",
-     "parts": [["motor_L", "up", 45], ["motor_R", "up", 45], ["pinion", "out", 20]],
-     "cam": {"target": [-25, 0, 32], "az": -150, "el": 35, "dist": 230},
-     "lines": ["Press the 10T brass pinion on each motor shaft", "Drop the motors in the saddles, shaft to the outside"],
-     "tip": "The pinion must mesh with the 90T gear on the rear rim: shaft fully home against the gear plate."},
-    {"title": "Motor clamps",
-     "parts": [["clamp_L", "up", 35], ["clamp_R", "up", 35], ["screw_M3x10_strap", "up", 50]],
-     "cam": {"target": [-25, 0, 35], "az": -140, "el": 45, "dist": 230},
-     "lines": ["Clamp over each motor", "8× M3x10 into the inserts, tighten crosswise"],
-     "tip": "Snug is enough: the clamp is 0.2 mm preloaded on the can."},
-    {"title": "5 V buck converter",
-     "parts": [["buck_LM2596", "up", 40], ["screw_M3x6_buck", "up", 50]],
-     "cam": {"target": [-22, 0, 20], "az": -120, "el": 55, "dist": 200},
-     "lines": ["LM2596 module on the two bosses between the motors", "2× M3x6"],
-     "tip": "Set the trimpot to 5.0 V with a multimeter BEFORE the ESP32 is connected."},
-    {"title": "Rear wheels",
-     "parts": [["nut_M5_rear", "up", 30], ["bearing_MR105_rear", "out", 45], ["rim_rear_L", "out", 45], ["tyre_rear_L", "out", 45],
-               ["rim_rear_R", "out", 45], ["tyre_rear_R", "out", 45], ["shim_rear", "out", 65], ["axle_bolt_M5x40", "out", 90]],
-     "cam": {"target": [0, 25, 30], "az": -160, "el": 22, "dist": 230},
-     "lines": ["Plain M5 nut into the slot in the axle tower, from the top",
-               "2 MR105 bearings pressed into each rim, one from each side",
-               "Shim 5×7×0.5 under the head, M5x40 from the outside"],
-     "tip": "Tighten the M5 fully: it clamps the inner races, the wheel spins on the bearings, the bolt stays still."},
-    {"title": "Steering servo",
-     "parts": [["servo", "up", 55], ["servo_clamp", "up", 40], ["screw_M3x10_servo", "up", 55]],
-     "cam": {"target": [122, 0, 25], "az": -130, "el": 45, "dist": 220},
-     "lines": ["Servo down through the floor, output shaft up and forward", "Clamp bars over the tabs, 4× M3x10"],
-     "tip": "Centre the servo (1500 µs) before the horn goes on in step 9."},
-    {"title": "Knuckles",
-     "parts": [["nut_M5_front", "in", 25], ["knuckle_L", "out", 40], ["knuckle_R", "out", 40], ["kingpin_M4x30", "down", 40], ["nut_M4_kingpin", "up", 30]],
-     "cam": {"target": [150, 12, 22], "az": -60, "el": 25, "dist": 200},
-     "lines": ["M5 nut into the hex pocket on the inside of the knuckle first",
-               "Knuckle over the beam end, M4x30 kingpin from below",
-               "2 plain M4 nuts on top"],
-     "tip": "No locknuts: turn the 1st nut until the play is gone, back off 1/8 turn, hold it and lock the 2nd against it."},
-    {"title": "Front wheels",
-     "parts": [["bearing_MR105_front", "out", 45], ["rim_front_L", "out", 45], ["tyre_front_L", "out", 45],
-               ["rim_front_R", "out", 45], ["tyre_front_R", "out", 45], ["shim_front", "out", 60], ["axle_bolt_M5x20", "out", 80]],
-     "cam": {"target": [150, 30, 22], "az": -40, "el": 20, "dist": 220},
-     "lines": ["2 MR105 bearings pressed into each front rim", "Shim, then M5x20 from the outside into the knuckle nut"],
-     "tip": "The round boss on the knuckle touches only the inner race: the wheel must spin freely."},
-    {"title": "Horn and tie rods",
-     "parts": [["servo_horn", "up", 35], ["tie_rod_L", "up", 40], ["tie_rod_R", "up", 45], ["screw_M4_steering", "down", 40], ["nut_M4_steering", "up", 35]],
-     "cam": {"target": [138, 0, 34], "az": -110, "el": 50, "dist": 190},
-     "lines": ["Wheels straight, servo centred: press the horn on the spline, pointing forward",
-               "Tie rods on M4 bolts from below, 2 plain nuts on top of each pivot"],
-     "tip": "Jam the nut pairs like the kingpins: the rods must turn freely without play."},
-    {"title": "Battery",
-     "parts": [["battery_2S", "up", 50]],
-     "cam": {"target": [55, 0, 25], "az": -125, "el": 40, "dist": 260},
-     "lines": ["2S pack between the end stops, leads through the notch", "Elastic band over the 4 hooks"],
-     "tip": "The red JST plug is the power switch: unplug it when you're done driving."},
-    {"title": "PCB",
-     "parts": [["pcb", "up", 50], ["screw_M3x6_pcb", "up", 55]],
-     "cam": {"target": [55, 0, 35], "az": -125, "el": 45, "dist": 280},
-     "lines": ["PCB on the 4 standoffs, 4× M3x6", "Motors to M1/M2, buck to J6/J7, servo to J4, battery last"],
-     "tip": "First power-up without the ESP32: check 5.0 V on the header, then plug it in."}
-  ]
+ "fps": 30,
+ "intro_frames": 75,
+ "step_frames": 96,
+ "fly_frames": 36,
+ "outro_frames": 150,
+ "overview_cam": {
+  "target": [
+   60,
+   0,
+   22
+  ],
+  "az": -135,
+  "el": 32,
+  "dist": 420
+ },
+ "steps": [
+  {
+   "title": "Heat inserts first",
+   "parts": [
+    [
+     "insert_M3x6_strap",
+     "up",
+     35
+    ],
+    [
+     "insert_M3x6_pcb",
+     "up",
+     35
+    ],
+    [
+     "insert_M3x6_servo",
+     "up",
+     35
+    ]
+   ],
+   "cam": {
+    "target": [
+     40,
+     0,
+     25
+    ],
+    "az": -125,
+    "el": 48,
+    "dist": 360
+   },
+   "lines": [
+    "16× M3x6 heat insert: 8 motor ears, 4 PCB standoffs, 4 servo towers",
+    "Do them all now, before anything else is mounted"
+   ],
+   "tip": "Iron 240–250 °C for ASA (200–220 °C for PLA). Press slowly and straight until flush, hold 10 s while it cools."
+  },
+  {
+   "title": "Motors with pinions",
+   "parts": [
+    [
+     "motor_L",
+     "up",
+     45
+    ],
+    [
+     "motor_R",
+     "up",
+     45
+    ],
+    [
+     "pinion",
+     "out",
+     20
+    ]
+   ],
+   "cam": {
+    "target": [
+     -25,
+     0,
+     32
+    ],
+    "az": -150,
+    "el": 35,
+    "dist": 230
+   },
+   "lines": [
+    "Press the 10T brass pinion on each motor shaft",
+    "Drop the motors in the saddles, shaft to the outside"
+   ],
+   "tip": "The pinion must mesh with the 90T gear on the rear rim: shaft fully home against the gear plate."
+  },
+  {
+   "title": "Motor clamps",
+   "parts": [
+    [
+     "clamp_L",
+     "up",
+     35
+    ],
+    [
+     "clamp_R",
+     "up",
+     35
+    ],
+    [
+     "screw_M3x10_strap",
+     "up",
+     50
+    ]
+   ],
+   "cam": {
+    "target": [
+     -25,
+     0,
+     35
+    ],
+    "az": -140,
+    "el": 45,
+    "dist": 230
+   },
+   "lines": [
+    "Clamp over each motor",
+    "8× M3x10 into the inserts, tighten crosswise"
+   ],
+   "tip": "Snug is enough: the clamp is 0.2 mm preloaded on the can."
+  },
+  {
+   "title": "Rear wheels",
+   "parts": [
+    [
+     "nut_M5_rear",
+     "up",
+     30
+    ],
+    [
+     "bearing_MR105_rear",
+     "out",
+     45
+    ],
+    [
+     "rim_rear_L",
+     "out",
+     45
+    ],
+    [
+     "tyre_rear_L",
+     "out",
+     45
+    ],
+    [
+     "rim_rear_R",
+     "out",
+     45
+    ],
+    [
+     "tyre_rear_R",
+     "out",
+     45
+    ],
+    [
+     "shim_rear",
+     "out",
+     65
+    ],
+    [
+     "axle_bolt_M5x40",
+     "out",
+     90
+    ]
+   ],
+   "cam": {
+    "target": [
+     0,
+     25,
+     30
+    ],
+    "az": -160,
+    "el": 22,
+    "dist": 230
+   },
+   "lines": [
+    "Plain M5 nut into the slot in the axle tower, from the top",
+    "2 MR105 bearings pressed into each rim, one from each side",
+    "Shim 5×7×0.5 under the head, M5x40 from the outside"
+   ],
+   "tip": "Tighten the M5 fully: it clamps the inner races, the wheel spins on the bearings, the bolt stays still."
+  },
+  {
+   "title": "Steering servo",
+   "parts": [
+    [
+     "servo",
+     "up",
+     55
+    ],
+    [
+     "servo_clamp",
+     "up",
+     40
+    ],
+    [
+     "screw_M3x10_servo",
+     "up",
+     55
+    ]
+   ],
+   "cam": {
+    "target": [
+     122,
+     0,
+     25
+    ],
+    "az": -130,
+    "el": 45,
+    "dist": 220
+   },
+   "lines": [
+    "Servo down through the floor, output shaft up and forward",
+    "Clamp bars over the tabs, 4× M3x10"
+   ],
+   "tip": "Centre the servo (1500 µs) before the horn goes on in step 9."
+  },
+  {
+   "title": "Knuckles",
+   "parts": [
+    [
+     "nut_M5_front",
+     "in",
+     25
+    ],
+    [
+     "knuckle_L",
+     "out",
+     40
+    ],
+    [
+     "knuckle_R",
+     "out",
+     40
+    ],
+    [
+     "kingpin_M4x30",
+     "down",
+     40
+    ],
+    [
+     "nut_M4_kingpin",
+     "up",
+     30
+    ]
+   ],
+   "cam": {
+    "target": [
+     150,
+     12,
+     22
+    ],
+    "az": -60,
+    "el": 25,
+    "dist": 200
+   },
+   "lines": [
+    "M5 nut into the hex pocket on the inside of the knuckle first",
+    "Knuckle over the beam end, M4x30 kingpin from below",
+    "2 plain M4 nuts on top"
+   ],
+   "tip": "No locknuts: turn the 1st nut until the play is gone, back off 1/8 turn, hold it and lock the 2nd against it."
+  },
+  {
+   "title": "Front wheels",
+   "parts": [
+    [
+     "bearing_MR105_front",
+     "out",
+     45
+    ],
+    [
+     "rim_front_L",
+     "out",
+     45
+    ],
+    [
+     "tyre_front_L",
+     "out",
+     45
+    ],
+    [
+     "rim_front_R",
+     "out",
+     45
+    ],
+    [
+     "tyre_front_R",
+     "out",
+     45
+    ],
+    [
+     "shim_front",
+     "out",
+     60
+    ],
+    [
+     "axle_bolt_M5x20",
+     "out",
+     80
+    ]
+   ],
+   "cam": {
+    "target": [
+     150,
+     30,
+     22
+    ],
+    "az": -40,
+    "el": 20,
+    "dist": 220
+   },
+   "lines": [
+    "2 MR105 bearings pressed into each front rim",
+    "Shim, then M5x20 from the outside into the knuckle nut"
+   ],
+   "tip": "The round boss on the knuckle touches only the inner race: the wheel must spin freely."
+  },
+  {
+   "title": "Horn and tie rods",
+   "parts": [
+    [
+     "servo_horn",
+     "up",
+     35
+    ],
+    [
+     "tie_rod_L",
+     "up",
+     40
+    ],
+    [
+     "tie_rod_R",
+     "up",
+     45
+    ],
+    [
+     "screw_M4_steering",
+     "down",
+     40
+    ],
+    [
+     "nut_M4_steering",
+     "up",
+     35
+    ]
+   ],
+   "cam": {
+    "target": [
+     138,
+     0,
+     34
+    ],
+    "az": -110,
+    "el": 50,
+    "dist": 190
+   },
+   "lines": [
+    "Wheels straight, servo centred: press the horn on the spline, pointing forward",
+    "Tie rods on M4 bolts from below, 2 plain nuts on top of each pivot"
+   ],
+   "tip": "Jam the nut pairs like the kingpins: the rods must turn freely without play."
+  },
+  {
+   "title": "Battery",
+   "parts": [
+    [
+     "battery_2S",
+     "up",
+     50
+    ]
+   ],
+   "cam": {
+    "target": [
+     55,
+     0,
+     25
+    ],
+    "az": -125,
+    "el": 40,
+    "dist": 260
+   },
+   "lines": [
+    "2S pack between the end stops, leads through the notch",
+    "Elastic band over the 4 hooks"
+   ],
+   "tip": "The red JST plug is the power switch: unplug it when you're done driving."
+  },
+  {
+   "title": "PCB",
+   "parts": [
+    [
+     "pcb",
+     "up",
+     50
+    ],
+    [
+     "screw_M3x6_pcb",
+     "up",
+     55
+    ]
+   ],
+   "cam": {
+    "target": [
+     55,
+     0,
+     35
+    ],
+    "az": -125,
+    "el": 45,
+    "dist": 280
+   },
+   "lines": [
+    "PCB on the 4 standoffs, 4× M3x6",
+    "Motors to M1/M2, servo to J4, battery last"
+   ],
+   "tip": "Solder the board first: low parts to high, see the notes."
+  },
+  {
+   "title": "5 V buck converter on the PCB",
+   "parts": [
+    [
+     "spacer_buck",
+     "up",
+     40
+    ],
+    [
+     "buck_LM2596",
+     "up",
+     50
+    ],
+    [
+     "screw_M3x10_buck",
+     "down",
+     45
+    ],
+    [
+     "nut_M3_buck",
+     "down",
+     35
+    ]
+   ],
+   "cam": {
+    "target": [
+     41,
+     21,
+     45
+    ],
+    "az": -125,
+    "el": 50,
+    "dist": 200
+   },
+   "lines": [
+    "Printed spacer on the PCB, LM2596 module on top",
+    "2× M3x10 from below with a nut, wires to J6 (IN) and J7 (OUT)"
+   ],
+   "tip": "Set the trimpot to 5.0 V with a multimeter BEFORE J7 is connected to the board."
+  }
+ ]
 }

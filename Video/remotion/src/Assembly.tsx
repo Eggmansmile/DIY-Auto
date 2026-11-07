@@ -8,7 +8,7 @@ const ease = Easing.bezier(0.45, 0, 0.2, 1);
 const ramp = (f: number, a: number, b: number) =>
   interpolate(f, [a, b], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease });
 
-const BOM = ["18× heat insert M3x6", "12× M3x10 · 6× M3x6", "M4x30 ×2 · M4x20/25/30 pivots", "10× plain M4 nut (jammed pairs)",
+const BOM = ["16× heat insert M3x6", "14× M3x10 · 4× M3x6 · 2× M3 nut", "M4x30 ×2 · M4x20/25/30 pivots", "10× plain M4 nut (jammed pairs)",
   "2× M5x40 · 2× M5x20 · 4× M5 nut", "8× MR105 bearing · 4× shim 5×7×0.5"];
 
 const Panel = ({ i, f }: { i: number; f: number }) => {
@@ -75,7 +75,7 @@ export const Assembly = () => {
 
       {/* title card */}
       <AbsoluteFill style={{ background: `rgba(23,23,23,${0.55 * title})`, justifyContent: "center", alignItems: "center", opacity: title }}>
-        <div style={{ color: C.orange, fontSize: 30, letterSpacing: 6, fontWeight: 600 }}>DIY-AUTO · V5</div>
+        <div style={{ color: C.orange, fontSize: 30, letterSpacing: 6, fontWeight: 600 }}>DIY-AUTO · V1</div>
         <div style={{ color: "#fff", fontSize: 110, fontWeight: 800, marginTop: 10 }}>Assembly guide</div>
         <div style={{ color: "#ddd", fontSize: 32, marginTop: 16 }}>11 steps · heat inserts, bearings, jam nuts</div>
       </AbsoluteFill>

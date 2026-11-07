@@ -1,4 +1,4 @@
-"""Assembly animation of the DIY-Auto (v5) for the Remotion video. Reads Video/steps.json + CAD/parts/*/*.stl.
+"""Assembly animation of the DIY-Auto (V1) for the Remotion video. Reads Video/steps.json + CAD/parts/*/*.stl.
 
 Run from the project folder:
     blender --background --python Video/assembly_anim.py -- stills      # 1 frame per step end -> Video/stills/
@@ -104,6 +104,40 @@ def load_pcb():
     return root, [root] + new
 
 
+LM_REF = ROOT / "CAD" / "ref" / "LM2596_module.wrl"   # YAAJ KiCad-Chinese_Modules, no licence: local only (.gitignore)
+
+
+def load_lm2596(box_ob):
+    """Real LM2596 module (KiCad StepUp VRML: flat IndexedFaceSet shapes, 1 unit = 2.54 mm) in place of the CAD box.
+    Model x runs IN -> OUT with IN+ at y+, same as the car (IN at low x): only a shift, board bottom on the box bottom.
+    Blender 5 has no VRML importer, so the file is parsed here."""
+    import re
+    verts, faces, mat_idx, mats = [], [], [], []
+    for s in re.finditer(r"coordIndex \[([^\]]*)\].*?point \[([^\]]*)\].*?diffuseColor ([\d.]+) ([\d.]+) ([\d.]+)", LM_REF.read_text(), re.S):
+        off = len(verts)
+        p = [float(v) * 2.54 for v in re.split(r"[\s,]+", s[2].strip()) if v]
+        verts += [tuple(p[i:i + 3]) for i in range(0, len(p), 3)]
+        rgb = tuple(round(float(s[k]), 3) for k in (3, 4, 5))
+        if rgb not in mats:
+            mats.append(rgb)
+        face = []
+        for i in (int(v) for v in re.split(r"[\s,]+", s[1].strip()) if v):
+            if i < 0:
+                faces.append([off + j for j in face]); mat_idx.append(mats.index(rgb)); face = []
+            else:
+                face.append(i)
+    me = bpy.data.meshes.new("buck_LM2596"); me.from_pydata(verts, [], faces)
+    for rgb in mats:
+        me.materials.append(material(rgb))
+    me.polygons.foreach_set("material_index", mat_idx)
+    ob = bpy.data.objects.new("buck_LM2596", me); bpy.context.scene.collection.objects.link(ob)
+    bpy.context.view_layer.update()
+    (mc, _, _), (bc, blo, _) = centre([ob]), centre([box_ob])
+    ob.location = (bc.x - mc.x, bc.y - mc.y, blo.z)            # model z 0 = board bottom (pins hang 0.85 below)
+    bpy.data.objects.remove(box_ob)
+    return ob
+
+
 def show_from(objs, frame):
     for o in objs:
         for f, hide in ((0, True), (frame, False)):
@@ -134,6 +168,8 @@ def main():
         parts[stl.stem] = [import_stl(stl, stl.stem)]
     for s in "LR":
         parts[f"motor_{s}"] = [import_stl(VID / "assets" / f"motor_{s}.stl", f"motor_{s}")]
+    if LM_REF.exists():
+        parts["buck_LM2596"] = [load_lm2596(parts.pop("buck_LM2596")[0])]
     root, pcb_objs = load_pcb()
     parts["pcb"] = pcb_objs
     for name, obs in list(parts.items()):

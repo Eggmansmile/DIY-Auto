@@ -2,7 +2,7 @@
 
 RC car: ESP32 + TB6612 motor driver, 2 rear motors, servo steering, 2S battery. Everything is generated from code; edit the script, not the output.
 
-Git: public repo github.com/Eggmansmile/DIY-Auto (main, tag `v1`). Video frames/stills, `.venv`, Fritzing parts clone, KiCad `.history` and the third-party servo model are in `.gitignore`. Absolute paths are stripped on commit by the `homepath` clean filter (`.gitattributes` + `.git/config`). Licences: MIT (code), CERN-OHL-P-2.0 (hardware).
+Git: public repo github.com/Eggmansmile/DIY-Auto (main, tag `v1`). Video frames/stills, `.venv`, Fritzing parts clone, KiCad `.history` and the third-party servo model are in `.gitignore`. Absolute paths are stripped on commit by the `homepath` clean filter (`.gitattributes` + `.git/config`). Licences: MIT (code), CERN-OHL-P-2.0 (hardware). Local only (gitignored): the old H-bridge set (`*hbrug*`, `test_hbridge`, `rev3.net`), `gen_breadboard.py` + `.kicad_bbrd`, and `CAD/ref/LM2596_module.wrl` (real module for the Blender renders, no licence). README images in `docs/` (crops of `Video/stills/`, kicad-cli PCB renders).
 
 ## Notes (Dutch, Obsidian)
 `DIY Auto.md` (hub) · `DIY Auto Elektronica.md` · `DIY Auto Mechanisch.md` · `DIY Auto Firmware.md` · `DIY Auto BOM.md` · `DIY Auto Assemblage.md` · `DIY Auto Breadboard.md` · `PCB bestellen en solderen.md` · `Testblok passingen.md` · `Taken DIY-Auto.md` · `DIY-Auto Project.canvas`
