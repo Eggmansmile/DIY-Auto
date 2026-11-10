@@ -182,6 +182,32 @@
    "tip": "Tighten the M5 fully: it clamps the inner races, the wheel spins on the bearings, the bolt stays still."
   },
   {
+   "title": "Servo cable first",
+   "parts": [
+    [
+     "servo_cable",
+     "down",
+     40
+    ]
+   ],
+   "cam": {
+    "target": [
+     110,
+     0,
+     12
+    ],
+    "az": -40,
+    "el": -20,
+    "dist": 130
+   },
+   "lines": [
+    "The servo cable leaves the servo low, at the shaft end",
+    "Lower the servo with the cable in the V-notch",
+    "at the front edge of the floor cutout"
+   ],
+   "tip": "Then run the cable over the side of the servo clamp back to the PCB (J4) and tie it down so the horn can't catch it."
+  },
+  {
    "title": "Steering servo",
    "parts": [
     [
@@ -211,19 +237,14 @@
     "dist": 220
    },
    "lines": [
-    "Servo down through the floor, output shaft up and forward",
-    "Clamp bars over the tabs, 4× M3x10"
+    "Servo down through the floor cutout, output shaft up and forward",
+    "Clamp bars over the tabs, 4× M3x10 into the inserts"
    ],
-   "tip": "Centre the servo (1500 µs) before the horn goes on in step 9."
+   "tip": "Centre the servo (1500 µs) before the horn goes on in step 10. The M2 holes in the tabs are not used."
   },
   {
-   "title": "Knuckles",
+   "title": "Knuckle onto the beam",
    "parts": [
-    [
-     "nut_M5_front",
-     "in",
-     25
-    ],
     [
      "knuckle_L",
      "out",
@@ -235,6 +256,33 @@
      40
     ],
     [
+     "nut_M5_front",
+     "out",
+     40
+    ]
+   ],
+   "highlight": "beam",
+   "cam": {
+    "target": [
+     150,
+     20,
+     20
+    ],
+    "az": 25,
+    "el": 22,
+    "dist": 130
+   },
+   "lines": [
+    "First press a plain M5 nut into the hex pocket inside each knuckle",
+    "Then slide the knuckle over the beam end (highlighted):",
+    "upper lug above the beam, lower lug below it"
+   ],
+   "tip": "Nut first: once the knuckle is on the beam, the beam traps the nut. The holes in both lugs and the beam end must line up for the kingpin."
+  },
+  {
+   "title": "Kingpin through lugs and beam",
+   "parts": [
+    [
      "kingpin_M4x30",
      "down",
      40
@@ -245,22 +293,26 @@
      30
     ]
    ],
+   "highlight": "beam",
+   "ghost": [
+    "knuckle_L",
+    "knuckle_R"
+   ],
    "cam": {
     "target": [
      150,
-     12,
-     22
+     20,
+     20
     ],
-    "az": -60,
-    "el": 25,
-    "dist": 200
+    "az": 20,
+    "el": 14,
+    "dist": 115
    },
    "lines": [
-    "M5 nut into the hex pocket on the inside of the knuckle first",
-    "Knuckle over the beam end, M4x30 kingpin from below",
+    "M4x30 kingpin from below: lower lug → beam → upper lug",
     "2 plain M4 nuts on top"
    ],
-   "tip": "No locknuts: turn the 1st nut until the play is gone, back off 1/8 turn, hold it and lock the 2nd against it."
+   "tip": "Turn the 1st nut until the play is gone, back off 1/8 turn, lock the 2nd against it. The knuckle must turn freely: it's the steering hinge."
   },
   {
    "title": "Front wheels",
@@ -313,9 +365,10 @@
    },
    "lines": [
     "2 MR105 bearings pressed into each front rim",
-    "Shim, then M5x20 from the outside into the knuckle nut"
+    "Shim, then M5x20 from the outside into the knuckle nut",
+    "A drop of blue threadlocker, tighten until the play is gone"
    ],
-   "tip": "The round boss on the knuckle touches only the inner race: the wheel must spin freely."
+   "tip": "The M5 clamps the inner races to the knuckle and stays still; the wheel spins on the bearings. No nylock: it would hit the beam when steering."
   },
   {
    "title": "Horn and tie rods",
@@ -358,9 +411,10 @@
    },
    "lines": [
     "Wheels straight, servo centred: press the horn on the spline, pointing forward",
-    "Tie rods on M4 bolts from below, 2 plain nuts on top of each pivot"
+    "Left rod under the right one on the horn pin",
+    "M4 from below: M4x20 horn, M4x25 left arm, M4x30 right arm"
    ],
-   "tip": "Jam the nut pairs like the kingpins: the rods must turn freely without play."
+   "tip": "2 plain nuts on top of each pivot, jammed like the kingpins: the rods must turn freely without play."
   },
   {
    "title": "Battery",

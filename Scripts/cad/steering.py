@@ -44,8 +44,9 @@ CLAMP = dict(x0=SL / 2 + SERVO_CUT + 0.05, xs=7.5, x1=16.7, hw=16.4, side=ST / 2
 
 def body_features():
     """(add, cut) for the nose: beam on a pedestal, servo posts."""
-    add = box(FAX_X - BEAM_R, FAX_X + BEAM_R, -KING_Y, KING_Y, BEAM_Z0, BEAM_Z1)
-    add += both(cz(FAX_X, KING_Y, BEAM_Z0, BEAM_Z1, BEAM_R))
+    beam = box(FAX_X - BEAM_R, FAX_X + BEAM_R, -KING_Y, KING_Y, BEAM_Z0, BEAM_Z1)
+    beam += both(cz(FAX_X, KING_Y, BEAM_Z0, BEAM_Z1, BEAM_R))
+    add = beam
     if NOSE_Z1 < BEAM_Z0:                            # pedestal only when the nose is lower than the beam
         add += box(FAX_X - BEAM_R, FAX_X + BEAM_R, -12, 12, NOSE_Z1 - 0.01, BEAM_Z0 + 0.01)
     c = CLAMP
@@ -58,11 +59,14 @@ def body_features():
     cut = both(cz(FAX_X, KING_Y, BEAM_Z0 - 1, BEAM_Z1 + 1, M4_FREE / 2))
     for x, y in clamp_bolts():
         cut += cz(x, y, TAB_Z1 - c["preload"] - 7, TAB_Z1, M3_INSERT / 2)   # M3x6 insert, blind 7
-    cut += tower_chamfer()
+    cut += tower_chamfer() - beam                     # 2026-11-10: the 45° relief cut the beam ends away (kingpins hung in the air)
     g = SERVO_CUT                                    # the body hangs through the floor
     cut += box(SERVO_X - SL / 2 - g, SERVO_X + SL / 2 + g, -ST / 2 - g, ST / 2 + g, FLOOR_Z0 - 1, NOSE_Z1 + 0.5)
-    # 2026-11-10: servo cable leaves the body end below the floor: runs under it and up through this slot (between rear tower and battery stop wall)
-    cut += box(SERVO_X - c["x1"] - 4.5, SERVO_X - c["x1"] - 1, -3, 3, FLOOR_Z0 - 1, NOSE_Z1 + 0.5)
+    # 2026-11-10: the servo cable leaves the shaft end face low (below the floor): small V-notch (6 wide, 3 deep) in the
+    # front edge of the cutout, through the floor and the front tower, so the flat cable runs up past the servo end
+    xe = SERVO_X + SL / 2 + g - 0.01
+    v = Polygon((xe, -3.0), (xe + 3.0, 0.0), (xe, 3.0), align=None)
+    cut += Pos(0, 0, FLOOR_Z0 - 1) * extrude(v, TAB_Z0 + 0.01 - (FLOOR_Z0 - 1))
     return add, cut
 
 

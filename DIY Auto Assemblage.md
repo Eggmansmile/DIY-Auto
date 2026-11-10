@@ -69,7 +69,7 @@ Steek de M5×20 met een schijfje door het voorwiel in de moer van stap 7, met ee
 ## 10. Servo
 
 1. Zet de servo eerst in het midden: 1500 µs. `test_drive` doet dat bij het opstarten.
-2. Steek eerst de servokabel van boven door de uitsparing, leid hem onder de vloer naar achter en weer omhoog door de sleuf achter de achterste toren. De kabel komt laag uit de servo, onder de vloer, dus hij kan nergens anders naar boven. Op de oude chassisprint zonder sleuf: boor daar zelf Ø4, midden, 1 tot 4 mm achter de toren (verder naar achter zit de eindwand van de accu) en haal de 3 pinnetjes uit de stekker om ze erdoor te steken (bruin = −).
+2. De servokabel komt laag uit de servo, aan de kant van de as. Leg hem in de V-inkeping aan de voorrand van de uitsparing terwijl je de servo laat zakken, zodat hij niet klemt. Leid hem daarna over de zijkant van de servoklem naar achter naar J4 en bind hem vast, zodat de hoorn er niet aan kan haken. Op de oude chassisprint zonder inkeping: vijl daar een kleine V.
 3. Laat de servo van boven door de uitsparing in de vloer zakken, met de as naar boven en aan de voorkant. Zijn onderkant komt op 5 mm boven de grond. Plak de kabel plat tegen de onderkant van de vloer.
 4. De lipjes rusten op de twee torens. De gaatjes in de lipjes zijn M2 en worden niet gebruikt: leg over elk lipje een geprinte servoklem (de uitsparing aan de kant van de ronde servotop) en zet die vast met 2× M3×10 in de inserts. Doe dat vóór de hoorn erop gaat.
 

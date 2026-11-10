@@ -12,7 +12,9 @@ from mathutils import Vector
 ROOT = Path(__file__).resolve().parents[1]
 VID = ROOT / "Video"
 sys.path.insert(0, str(ROOT / "Scripts" / "cad"))
-from params import PCB_X0, PCB_Z                                   # noqa: E402  (plain constants)
+from params import PCB_X0, PCB_Z, FAX_X, KING_Y, BEAM_R, BEAM_Z0, BEAM_Z1, SERVO_OUT, SERVO_SHAFT_DX, SERVO   # noqa: E402
+
+SERVO_X = SERVO_OUT - SERVO_SHAFT_DX
 
 MODE = sys.argv[sys.argv.index("--") + 1] if "--" in sys.argv else "stills"
 S = json.loads((VID / "steps.json").read_text())
@@ -138,6 +140,49 @@ def load_lm2596(box_ob):
     return ob
 
 
+def servo_cable():
+    """3-wire servo cable as a bevelled curve: out of the servo's front end face low, up through the V-notch in the
+    front edge of the floor cutout, then back over the side of the servo clamp towards the PCB."""
+    x1, hy = SERVO_X + SERVO[0] / 2, SERVO[1] / 2
+    pts = [(x1, 0, 7), (x1 + 0.9, 0, 9), (x1 + 0.9, 0, 21), (x1 + 2.5, 3, 23.5), (SERVO_X + 8, hy + 8, 24),
+           (SERVO_X - 14, hy + 8, 24), (SERVO_X - 26, 6, 32), (SERVO_X - 32, 0, 38)]
+    cu = bpy.data.curves.new("servo_cable", "CURVE"); cu.dimensions = "3D"
+    cu.bevel_depth, cu.bevel_resolution = 0.8, 2
+    sp = cu.splines.new("POLY"); sp.points.add(len(pts) - 1)
+    for p, (x, y, z) in zip(sp.points, pts):
+        p.co = (x, y, z, 1)
+    ob = bpy.data.objects.new("servo_cable", cu); bpy.context.scene.collection.objects.link(ob)
+    cu.materials.append(material((0.62, 0.30, 0.12)))
+    return ob
+
+
+def beam_highlight():
+    """Orange see-through sleeve over both beam ends (round, r BEAM_R around the kingpin): what the knuckle slides onto."""
+    obs = []
+    for sy in (1, -1):
+        bpy.ops.mesh.primitive_cylinder_add(radius=BEAM_R + 0.4, depth=BEAM_Z1 - BEAM_Z0 + 0.8,
+                                            location=(FAX_X, sy * KING_Y, (BEAM_Z0 + BEAM_Z1) / 2))
+        ob = bpy.context.active_object; ob.name = "beam_hl"
+        m = bpy.data.materials.new("hl"); m.diffuse_color = (1.0, 0.45, 0.05, 0.75); ob.data.materials.append(m)
+        obs.append(ob)
+    return obs
+
+
+def show_between(objs, f0, f1):
+    for o in objs:
+        for f, hide in ((0, True), (f0, False), (f1, True)):
+            o.hide_render = o.hide_viewport = hide
+            o.keyframe_insert("hide_render", frame=f); o.keyframe_insert("hide_viewport", frame=f)
+
+
+def ghost(objs, f0, f1, alpha=0.3):
+    """Make objs see-through between f0 and f1 (own material copy, alpha keyed; Workbench draws it transparent)."""
+    for o in objs:
+        m = o.data.materials[0].copy(); o.data.materials[0] = m
+        for f, a in ((0, 1.0), (f0, 1.0), (f0 + 10, alpha), (f1 - 10, alpha), (f1, 1.0)):
+            m.diffuse_color[3] = a; m.keyframe_insert("diffuse_color", index=3, frame=f)
+
+
 def show_from(objs, frame):
     for o in objs:
         for f, hide in ((0, True), (frame, False)):
@@ -172,6 +217,8 @@ def main():
         parts["buck_LM2596"] = [load_lm2596(parts.pop("buck_LM2596")[0])]
     root, pcb_objs = load_pcb()
     parts["pcb"] = pcb_objs
+    parts["servo_cable"] = [servo_cable()]
+    hl = beam_highlight()
     for name, obs in list(parts.items()):
         if name.startswith(("insert_", "screw_", "nut_", "shim_", "bearing_", "axle_bolt_", "kingpin_", "pinion")):
             parts[name] = split_loose(obs[0])
@@ -188,6 +235,10 @@ def main():
             movers = [root] if name == "pcb" else obs
             for o in movers:
                 fly(o, direction, dist, f0)
+        if st.get("highlight") == "beam":
+            show_between(hl, f, f + STEP)
+        for name in st.get("ghost", []):
+            ghost(parts[name], f + 50, f + STEP)
     for o in bpy.data.objects:                      # constant visibility, eased motion
         if o.animation_data and o.animation_data.action:
             for fc in o.animation_data.action.fcurves if hasattr(o.animation_data.action, "fcurves") else []:
