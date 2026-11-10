@@ -14,7 +14,7 @@ import trimesh, rectpack
 
 CAD = Path(__file__).resolve().parents[2] / "CAD"
 PRINTER = sys.argv[1] if len(sys.argv) > 1 else "p1s"
-BED = {"p1s": (245.0, 245.0), "p1s-alles": (245.0, 245.0), "p1s-tpu": (245.0, 245.0), "h2d-herdruk": (315.0, 310.0), "p1s-asa": (245.0, 245.0), "a1mini": (175.0, 175.0), "h2d": (315.0, 310.0), "h2d-v6": (315.0, 310.0), "h2d-v7": (315.0, 310.0), "h2d-v8": (315.0, 310.0)}[PRINTER]
+BED = {"p1s": (245.0, 245.0), "p1s-alles": (245.0, 245.0), "p1s-tpu": (245.0, 245.0), "h2d-herdruk": (315.0, 310.0), "p1s-asa": (245.0, 245.0), "a1mini": (175.0, 175.0), "h2d": (315.0, 310.0), "h2d-v6": (315.0, 310.0), "h2d-v7": (315.0, 310.0), "h2d-v8": (315.0, 310.0), "h2d-v9": (315.0, 310.0)}[PRINTER]
 GAP = 5.0
 PLATES = {
     "plaat0_PLA_testblok": ["test_fit"],         # print first in every new material: fits for params.py
@@ -41,6 +41,8 @@ elif PRINTER == "h2d-v7":           # 2026-11-05: measured servo (towers, clamp 
     PLATES = {"DIYAuto_v7_ASA_H2D": ["body", "servo_clamp", "servo_horn", "spacer_buck"]}
 elif PRINTER == "h2d-v8":           # 2026-11-07: nose as thick as the floor (8 mm), same parts as v7
     PLATES = {"DIYAuto_v8_ASA_H2D": ["body", "clamp_L", "clamp_R", "servo_clamp", "servo_horn", "spacer_buck"]}
+elif PRINTER == "h2d-v9":           # 2026-11-10: servo cable slot behind the rear tower, servo fit +0.2 mm
+    PLATES = {"DIYAuto_v9_ASA_H2D": ["body", "clamp_L", "clamp_R", "servo_clamp", "servo_horn", "spacer_buck"]}
 elif PRINTER == "p1s-asa":           # 2026-11-03: same ASA reprint on the P1S (H2D start failed)
     PLATES = {}
 elif PRINTER == "p1s-tpu":           # 2026-11-03: tyres in TPU 95A on the P1S, external spool (not through the AMS)

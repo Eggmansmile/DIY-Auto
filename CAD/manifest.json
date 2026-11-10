@@ -6,7 +6,7 @@
   "qty": 1,
   "material": "ASA black, one piece (v5: chassis + nose merged), floor on the bed",
   "colour": "#8fa3b8",
-  "volume_mm3": 159347.6
+  "volume_mm3": 159022.0
  },
  {
   "name": "clamp_L",
@@ -258,7 +258,7 @@
   "qty": 2,
   "material": "ASA black, 2 flat bars 4.5 mm over the servo tabs (one STL holds both)",
   "colour": "#e8833a",
-  "volume_mm3": 1934.8
+  "volume_mm3": 1897.7
  },
  {
   "name": "insert_M3x6_servo",
