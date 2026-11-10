@@ -28,7 +28,7 @@ ROD = dict(t=3.5, w=7.0, boss_r=5.0, hole_d=M4_FREE)            # v5: printed ti
 PIN = (SERVO_OUT + HORN_R, 0.0)                                  # horn hole: both tie rods, right rod on top
 HORN_LOCK = 17.5                                                 # horn ±17.5° → inner knuckle 30° (linkage ratio ≈ 1.6); firmware SERVO_RANGE 145 µs
 ARM_BOSS_R = 5.0                                                 # arm end boss, M4 through, head underneath (2.75 mm wall)
-SERVO_CUT = 0.4                                                  # clearance around the servo body in the floor cutout
+SERVO_CUT = 0.6                                                  # clearance around the servo body in the floor cutout (2026-11-10: 0.4 -> 0.6, servo had to be forced in)
 HORN = dict(t=4.0, hub_r=6.0, bore=SERVO_SPLINE_D + 0.02, cap=1.5, w=9.0)          # printed horn: bore ≈ spline + 0.02 → press fit after FDM undersize
 SERVO_Z0 = HORN_Z1 - HORN["cap"] - SERVO_SPLINE_Z               # servo base: spline top just under the horn cap (2026-11-05: measured servo)
 SERVO_TOP = SERVO_Z0 + SH                                        # flat body top
@@ -39,7 +39,7 @@ TAB_Z1 = TAB_Z0 + SERVO_TAB["t"]
 # the raised sides (|y| > 6.45) stop 0.2 under the tab top so the bar preloads the tab; M3 inserts at 15.7 / ±10.2
 # v5: towers end at 16.7 from SERVO_X (front one clears the knuckle arm at lock and the pin nut); the inserts sit beside
 # the servo body (|y| 11.1, x 12.1) in side blocks that reach in to xs = 7.5, so each has 2.5 mm of plastic; bars 4.5 thick
-CLAMP = dict(x0=SL / 2 + 0.45, xs=7.5, x1=16.7, hw=16.4, side=ST / 2 + SERVO_CUT + 0.05, slot=ST / 2 + 0.3, t=4.5, preload=0.2, bx=12.1, by=11.6)
+CLAMP = dict(x0=SL / 2 + SERVO_CUT + 0.05, xs=7.5, x1=16.7, hw=16.4, side=ST / 2 + SERVO_CUT + 0.05, slot=ST / 2 + 0.5, t=4.5, preload=0.2, bx=12.1, by=11.6)
 
 
 def body_features():
@@ -61,6 +61,8 @@ def body_features():
     cut += tower_chamfer()
     g = SERVO_CUT                                    # the body hangs through the floor
     cut += box(SERVO_X - SL / 2 - g, SERVO_X + SL / 2 + g, -ST / 2 - g, ST / 2 + g, FLOOR_Z0 - 1, NOSE_Z1 + 0.5)
+    # 2026-11-10: servo cable leaves the body end below the floor: runs under it and up through this slot (between rear tower and battery stop wall)
+    cut += box(SERVO_X - c["x1"] - 4.5, SERVO_X - c["x1"] - 1, -3, 3, FLOOR_Z0 - 1, NOSE_Z1 + 0.5)
     return add, cut
 
 

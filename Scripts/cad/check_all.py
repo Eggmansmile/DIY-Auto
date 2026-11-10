@@ -84,7 +84,9 @@ for x in range(-44, int(HALF_OUTLINE[-1][0]) - 2, 4):
         inside_cut = abs(x - SERVO_X) < SERVO[0] / 2 + g + 1 and abs(y) < SERVO[1] / 2 + g + 1
         in_batt = BATT[0] - 2 < x < BATT[1] + 2 and abs(y) < BATT[2] / 2 + 3
         in_relief = (x - SERVO_X) + abs(y) > C_CH
-        if inside_cut or in_batt or in_relief or x < GEAR_PLATE_X0 + 6:
+        x1 = SERVO_X - steering.CLAMP['x1']
+        in_cable = x1 - 5.5 < x < x1 and abs(y) < 4      # servo cable slot behind the rear tower
+        if inside_cut or in_batt or in_relief or in_cable or x < GEAR_PLATE_X0 + 6:
             continue
         for z in (FLOOR_Z0 + 0.5, FLOOR_Z1 - 0.5):
             if not body.is_inside(Vector(x, y, z)):
