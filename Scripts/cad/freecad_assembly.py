@@ -1,4 +1,4 @@
-"""FreeCAD 1.1 assembly with joints, built from the STEP files of assemble.py (+ freecad_export.py for the motors).
+"""FreeCAD 1.1 assembly with joints, built from the STEP files in CAD/parts (SolidCraft export_sc.py; motor_L/R.step are static references).
 
 Every part sits in world position already, so each joint gets its two connectors (JCS) at the same world
 placement on the axis: Detach = True with an explicit Placement, no picking of edges/faces needed.

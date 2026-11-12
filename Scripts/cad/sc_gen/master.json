@@ -1,0 +1,3945 @@
+{
+ "commands": [
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "LOCK",
+    "expression": "30 deg",
+    "comment": "steering lock, = params.py LOCK"
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/body.sc"
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/clamp.sc"
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/tie_rod.sc"
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/servo_clamp.sc"
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/servo_horn.sc"
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/spacer_buck.sc"
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/rim_rear_L.sc",
+    "name": "rim_rear_R"
+   }
+  },
+  {
+   "command": "component.from_bodies",
+   "params": {
+    "bodies": [
+     "rim_rear_L"
+    ]
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/tyre_rear_L.sc",
+    "name": "tyre_rear_R"
+   }
+  },
+  {
+   "command": "component.from_bodies",
+   "params": {
+    "bodies": [
+     "tyre_rear_L"
+    ]
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/rim_front_L.sc",
+    "name": "rim_front_R"
+   }
+  },
+  {
+   "command": "component.from_bodies",
+   "params": {
+    "bodies": [
+     "rim_front_L"
+    ]
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/tyre_front_L.sc",
+    "name": "tyre_front_R"
+   }
+  },
+  {
+   "command": "component.from_bodies",
+   "params": {
+    "bodies": [
+     "tyre_front_L"
+    ]
+   }
+  },
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/knuckle_R.sc",
+    "name": "knuckle_L"
+   }
+  },
+  {
+   "command": "component.from_bodies",
+   "params": {
+    "bodies": [
+     "knuckle_R"
+    ]
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/1 frame/motor_L.step",
+    "name": "motor_L"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/1 frame/motor_R.step",
+    "name": "motor_R"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/1 frame/insert_M3x6_pcb.step",
+    "name": "insert_M3x6_pcb"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/1 frame/insert_M3x6_strap.step",
+    "name": "insert_M3x6_strap"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/2 rear drive/bearing_MR105_rear.step",
+    "name": "bearing_MR105_rear"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/2 rear drive/pinion.step",
+    "name": "pinion"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/2 rear drive/shim_rear.step",
+    "name": "shim_rear"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/3 front wheels/bearing_MR105_front.step",
+    "name": "bearing_MR105_front"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/4 steering/insert_M3x6_servo.step",
+    "name": "insert_M3x6_servo"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/4 steering/servo.step",
+    "name": "servo"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/4 steering/shim_front.step",
+    "name": "shim_front"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/5 electronics/battery_2S.step",
+    "name": "battery_2S"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/5 electronics/buck_LM2596.step",
+    "name": "buck_LM2596"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/5 electronics/devkit_ESP32.step",
+    "name": "devkit_ESP32"
+   }
+  },
+  {
+   "command": "file.insert_step",
+   "params": {
+    "path": "CAD/parts/5 electronics/pcb_kicad.step",
+    "name": "pcb_kicad",
+    "matrix": [
+     -1,
+     0,
+     0,
+     205,
+     0,
+     -1,
+     0,
+     -135,
+     0,
+     0,
+     1,
+     40
+    ]
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "revolute",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      0,
+      40,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "rim_rear_L:1",
+     "point": [
+      0,
+      40,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Rear wheel L"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "rim_rear_L:1",
+     "point": [
+      0,
+      40,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "tyre_rear_L:1",
+     "point": [
+      0,
+      40,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Rear tyre L"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "revolute",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      150,
+      20.5,
+      20
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "knuckle_L:1",
+     "point": [
+      150,
+      20.5,
+      20
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Kingpin L",
+    "limits": [
+     [
+      "-LOCK",
+      "LOCK"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "revolute",
+    "a": {
+     "occurrence": "knuckle_L:1",
+     "point": [
+      150,
+      40,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "rim_front_L:1",
+     "point": [
+      150,
+      40,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Front wheel L"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "rim_front_L:1",
+     "point": [
+      150,
+      40,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "tyre_front_L:1",
+     "point": [
+      150,
+      40,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Front tyre L"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "revolute",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      0,
+      -40,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "rim_rear_R:1",
+     "point": [
+      0,
+      -40,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Rear wheel R"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "rim_rear_R:1",
+     "point": [
+      0,
+      -40,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "tyre_rear_R:1",
+     "point": [
+      0,
+      -40,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Rear tyre R"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "revolute",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      150,
+      -20.5,
+      20
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "knuckle_R:1",
+     "point": [
+      150,
+      -20.5,
+      20
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Kingpin R",
+    "limits": [
+     [
+      "-LOCK",
+      "LOCK"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "revolute",
+    "a": {
+     "occurrence": "knuckle_R:1",
+     "point": [
+      150,
+      -40,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "rim_front_R:1",
+     "point": [
+      150,
+      -40,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Front wheel R"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "rim_front_R:1",
+     "point": [
+      150,
+      -40,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "tyre_front_R:1",
+     "point": [
+      150,
+      -40,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Front tyre R"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     -42.5,
+     17,
+     39.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_strap_0",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      -42.5,
+      17,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_strap_0:1",
+     "point": [
+      -42.5,
+      17,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_strap_0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     -42.5,
+     -17,
+     39.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_strap_1",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      -42.5,
+      -17,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_strap_1:1",
+     "point": [
+      -42.5,
+      -17,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_strap_1"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     -7.5,
+     17,
+     39.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_strap_2",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      -7.5,
+      17,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_strap_2:1",
+     "point": [
+      -7.5,
+      17,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_strap_2"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     -7.5,
+     -17,
+     39.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_strap_3",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      -7.5,
+      -17,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_strap_3:1",
+     "point": [
+      -7.5,
+      -17,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_strap_3"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     -42.5,
+     29.8,
+     39.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_strap_4",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      -42.5,
+      29.8,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_strap_4:1",
+     "point": [
+      -42.5,
+      29.8,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_strap_4"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     -42.5,
+     -29.8,
+     39.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_strap_5",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      -42.5,
+      -29.8,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_strap_5:1",
+     "point": [
+      -42.5,
+      -29.8,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_strap_5"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     -7.5,
+     29.8,
+     39.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_strap_6",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      -7.5,
+      29.8,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_strap_6:1",
+     "point": [
+      -7.5,
+      29.8,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_strap_6"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     -7.5,
+     -29.8,
+     39.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_strap_7",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      -7.5,
+      -29.8,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_strap_7:1",
+     "point": [
+      -7.5,
+      -29.8,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_strap_7"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     106.3,
+     -11.6,
+     27.3
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_servo_0",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      106.3,
+      -11.6,
+      27.3
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_servo_0:1",
+     "point": [
+      106.3,
+      -11.6,
+      27.3
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_servo_0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     106.3,
+     11.6,
+     27.3
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_servo_1",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      106.3,
+      11.6,
+      27.3
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_servo_1:1",
+     "point": [
+      106.3,
+      11.6,
+      27.3
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_servo_1"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     130.5,
+     -11.6,
+     27.3
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_servo_2",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      130.5,
+      -11.6,
+      27.3
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_servo_2:1",
+     "point": [
+      130.5,
+      -11.6,
+      27.3
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_servo_2"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     130.5,
+     11.6,
+     27.3
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_servo_3",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      130.5,
+      11.6,
+      27.3
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_servo_3:1",
+     "point": [
+      130.5,
+      11.6,
+      27.3
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_servo_3"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     26.41,
+     29.5,
+     46.2
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_buck_0",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "spacer_buck:1",
+     "point": [
+      26.41,
+      29.5,
+      46.2
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_buck_0:1",
+     "point": [
+      26.41,
+      29.5,
+      46.2
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_buck_0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M3",
+    "point": [
+     26.41,
+     29.5,
+     40.0
+    ],
+    "direction": [
+     0,
+     0,
+     -1
+    ],
+    "name": "nut_M3_buck_0"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "spacer_buck:1",
+     "point": [
+      26.41,
+      29.5,
+      40.0
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M3_buck_0:1",
+     "point": [
+      26.41,
+      29.5,
+      40.0
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M3_buck_0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     56.38,
+     13.5,
+     46.2
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x10_buck_1",
+    "length": 10
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "spacer_buck:1",
+     "point": [
+      56.38,
+      13.5,
+      46.2
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x10_buck_1:1",
+     "point": [
+      56.38,
+      13.5,
+      46.2
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x10_buck_1"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M3",
+    "point": [
+     56.38,
+     13.5,
+     40.0
+    ],
+    "direction": [
+     0,
+     0,
+     -1
+    ],
+    "name": "nut_M3_buck_1"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "spacer_buck:1",
+     "point": [
+      56.38,
+      13.5,
+      40.0
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M3_buck_1:1",
+     "point": [
+      56.38,
+      13.5,
+      40.0
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M3_buck_1"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     8.5,
+     31.5,
+     41.6
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x6_pcb_0",
+    "length": 6
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      8.5,
+      31.5,
+      41.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x6_pcb_0:1",
+     "point": [
+      8.5,
+      31.5,
+      41.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x6_pcb_0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     8.5,
+     -31.5,
+     41.6
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x6_pcb_1",
+    "length": 6
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      8.5,
+      -31.5,
+      41.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x6_pcb_1:1",
+     "point": [
+      8.5,
+      -31.5,
+      41.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x6_pcb_1"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     101.5,
+     31.5,
+     41.6
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x6_pcb_2",
+    "length": 6
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      101.5,
+      31.5,
+      41.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x6_pcb_2:1",
+     "point": [
+      101.5,
+      31.5,
+      41.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x6_pcb_2"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M3",
+    "point": [
+     101.5,
+     -31.5,
+     41.6
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "screw_M3x6_pcb_3",
+    "length": 6
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      101.5,
+      -31.5,
+      41.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M3x6_pcb_3:1",
+     "point": [
+      101.5,
+      -31.5,
+      41.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M3x6_pcb_3"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M5",
+    "point": [
+     0,
+     72.5,
+     35
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "name": "axle_bolt_M5x40_L",
+    "length": 40
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      0,
+      72.5,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "axle_bolt_M5x40_L:1",
+     "point": [
+      0,
+      72.5,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix axle_bolt_M5x40_L"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M5",
+    "point": [
+     0,
+     42.2,
+     35
+    ],
+    "direction": [
+     0,
+     -1,
+     0
+    ],
+    "name": "nut_M5_rear_L"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      0,
+      42.2,
+      35
+     ],
+     "z": [
+      0,
+      -1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M5_rear_L:1",
+     "point": [
+      0,
+      42.2,
+      35
+     ],
+     "z": [
+      0,
+      -1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M5_rear_L"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M5",
+    "point": [
+     150,
+     46.5,
+     20
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "name": "axle_bolt_M5x20_L",
+    "length": 20
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_L:1",
+     "point": [
+      150,
+      46.5,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "axle_bolt_M5x20_L:1",
+     "point": [
+      150,
+      46.5,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix axle_bolt_M5x20_L"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M5",
+    "point": [
+     150,
+     30.4,
+     20
+    ],
+    "direction": [
+     0,
+     -1,
+     0
+    ],
+    "name": "nut_M5_front_L"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_L:1",
+     "point": [
+      150,
+      30.4,
+      20
+     ],
+     "z": [
+      0,
+      -1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M5_front_L:1",
+     "point": [
+      150,
+      30.4,
+      20
+     ],
+     "z": [
+      0,
+      -1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M5_front_L"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M4",
+    "point": [
+     150,
+     20.5,
+     10.6
+    ],
+    "direction": [
+     0,
+     0,
+     -1
+    ],
+    "name": "kingpin_M4x30_L",
+    "length": 30
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      150,
+      20.5,
+      10.6
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "kingpin_M4x30_L:1",
+     "point": [
+      150,
+      20.5,
+      10.6
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix kingpin_M4x30_L"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     150,
+     20.5,
+     29.4
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_kingpin_L0"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      150,
+      20.5,
+      29.4
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_kingpin_L0:1",
+     "point": [
+      150,
+      20.5,
+      29.4
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_kingpin_L0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     150,
+     20.5,
+     32.6
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_kingpin_L1"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      150,
+      20.5,
+      32.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_kingpin_L1:1",
+     "point": [
+      150,
+      20.5,
+      32.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_kingpin_L1"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M5",
+    "point": [
+     0,
+     -72.5,
+     35
+    ],
+    "direction": [
+     0,
+     -1,
+     0
+    ],
+    "name": "axle_bolt_M5x40_R",
+    "length": 40
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      0,
+      -72.5,
+      35
+     ],
+     "z": [
+      0,
+      -1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "axle_bolt_M5x40_R:1",
+     "point": [
+      0,
+      -72.5,
+      35
+     ],
+     "z": [
+      0,
+      -1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix axle_bolt_M5x40_R"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M5",
+    "point": [
+     0,
+     -42.2,
+     35
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "name": "nut_M5_rear_R"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      0,
+      -42.2,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M5_rear_R:1",
+     "point": [
+      0,
+      -42.2,
+      35
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M5_rear_R"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M5",
+    "point": [
+     150,
+     -46.5,
+     20
+    ],
+    "direction": [
+     0,
+     -1,
+     0
+    ],
+    "name": "axle_bolt_M5x20_R",
+    "length": 20
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_R:1",
+     "point": [
+      150,
+      -46.5,
+      20
+     ],
+     "z": [
+      0,
+      -1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "axle_bolt_M5x20_R:1",
+     "point": [
+      150,
+      -46.5,
+      20
+     ],
+     "z": [
+      0,
+      -1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix axle_bolt_M5x20_R"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M5",
+    "point": [
+     150,
+     -30.4,
+     20
+    ],
+    "direction": [
+     0,
+     1,
+     0
+    ],
+    "name": "nut_M5_front_R"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_R:1",
+     "point": [
+      150,
+      -30.4,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M5_front_R:1",
+     "point": [
+      150,
+      -30.4,
+      20
+     ],
+     "z": [
+      0,
+      1,
+      0
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M5_front_R"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M4",
+    "point": [
+     150,
+     -20.5,
+     10.6
+    ],
+    "direction": [
+     0,
+     0,
+     -1
+    ],
+    "name": "kingpin_M4x30_R",
+    "length": 30
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      150,
+      -20.5,
+      10.6
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "kingpin_M4x30_R:1",
+     "point": [
+      150,
+      -20.5,
+      10.6
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix kingpin_M4x30_R"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     150,
+     -20.5,
+     29.4
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_kingpin_R0"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      150,
+      -20.5,
+      29.4
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_kingpin_R0:1",
+     "point": [
+      150,
+      -20.5,
+      29.4
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_kingpin_R0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     150,
+     -20.5,
+     32.6
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_kingpin_R1"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "body:1",
+     "point": [
+      150,
+      -20.5,
+      32.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_kingpin_R1:1",
+     "point": [
+      150,
+      -20.5,
+      32.6
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_kingpin_R1"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M4",
+    "point": [
+     140.1,
+     0,
+     32.0
+    ],
+    "direction": [
+     0,
+     0,
+     -1
+    ],
+    "name": "screw_M4_steering_mid",
+    "length": 20
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "servo_horn:1",
+     "point": [
+      140.1,
+      0,
+      32.0
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M4_steering_mid:1",
+     "point": [
+      140.1,
+      0,
+      32.0
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M4_steering_mid"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     140.1,
+     0,
+     43.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_steering_mid0"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "servo_horn:1",
+     "point": [
+      140.1,
+      0,
+      43.0
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_steering_mid0:1",
+     "point": [
+      140.1,
+      0,
+      43.0
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_steering_mid0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     140.1,
+     0,
+     46.2
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_steering_mid1"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "servo_horn:1",
+     "point": [
+      140.1,
+      0,
+      46.2
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_steering_mid1:1",
+     "point": [
+      140.1,
+      0,
+      46.2
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_steering_mid1"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M4",
+    "point": [
+     140.09,
+     19.15,
+     25.4
+    ],
+    "direction": [
+     0,
+     0,
+     -1
+    ],
+    "name": "screw_M4_steering_L",
+    "length": 25
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_L:1",
+     "point": [
+      140.09,
+      19.15,
+      25.4
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M4_steering_L:1",
+     "point": [
+      140.09,
+      19.15,
+      25.4
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M4_steering_L"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     140.09,
+     19.15,
+     39.5
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_steering_L0"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_L:1",
+     "point": [
+      140.09,
+      19.15,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_steering_L0:1",
+     "point": [
+      140.09,
+      19.15,
+      39.5
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_steering_L0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     140.09,
+     19.15,
+     42.7
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_steering_L1"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_L:1",
+     "point": [
+      140.09,
+      19.15,
+      42.7
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_steering_L1:1",
+     "point": [
+      140.09,
+      19.15,
+      42.7
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_steering_L1"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "socket_head_cap_screw",
+    "size": "M4",
+    "point": [
+     140.09,
+     -19.15,
+     25.4
+    ],
+    "direction": [
+     0,
+     0,
+     -1
+    ],
+    "name": "screw_M4_steering_R",
+    "length": 30
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_R:1",
+     "point": [
+      140.09,
+      -19.15,
+      25.4
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "screw_M4_steering_R:1",
+     "point": [
+      140.09,
+      -19.15,
+      25.4
+     ],
+     "z": [
+      0,
+      0,
+      -1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix screw_M4_steering_R"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     140.09,
+     -19.15,
+     43.0
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_steering_R0"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_R:1",
+     "point": [
+      140.09,
+      -19.15,
+      43.0
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_steering_R0:1",
+     "point": [
+      140.09,
+      -19.15,
+      43.0
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_steering_R0"
+   }
+  },
+  {
+   "command": "parts.insert",
+   "params": {
+    "family": "hex_nut",
+    "size": "M4",
+    "point": [
+     140.09,
+     -19.15,
+     46.2
+    ],
+    "direction": [
+     0,
+     0,
+     1
+    ],
+    "name": "nut_M4_steering_R1"
+   }
+  },
+  {
+   "command": "joint.create",
+   "params": {
+    "type": "rigid",
+    "a": {
+     "occurrence": "knuckle_R:1",
+     "point": [
+      140.09,
+      -19.15,
+      46.2
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "b": {
+     "occurrence": "nut_M4_steering_R1:1",
+     "point": [
+      140.09,
+      -19.15,
+      46.2
+     ],
+     "z": [
+      0,
+      0,
+      1
+     ],
+     "x": [
+      1,
+      0,
+      0
+     ]
+    },
+    "flip": true,
+    "name": "Fix nut_M4_steering_R1"
+   }
+  },
+  {
+   "command": "component.create",
+   "params": {
+    "name": "Tyres",
+    "parent": 0,
+    "activate": false
+   }
+  },
+  {
+   "command": "component.create",
+   "params": {
+    "name": "Front axle & steering",
+    "parent": 0,
+    "activate": false
+   }
+  },
+  {
+   "command": "component.create",
+   "params": {
+    "name": "Motors & drive",
+    "parent": 0,
+    "activate": false
+   }
+  },
+  {
+   "command": "component.create",
+   "params": {
+    "name": "PCB & electronics",
+    "parent": 0,
+    "activate": false
+   }
+  },
+  {
+   "command": "component.create",
+   "params": {
+    "name": "Body",
+    "parent": 0,
+    "activate": false
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "motor_L:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "motor_R:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "insert_M3x6_pcb:1",
+    "parent": "Body"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "insert_M3x6_strap:1",
+    "parent": "Body"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "bearing_MR105_rear:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "pinion:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "shim_rear:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "bearing_MR105_front:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "insert_M3x6_servo:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "servo:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "shim_front:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "battery_2S:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "buck_LM2596:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "devkit_ESP32:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "pcb_kicad:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_strap_0:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_strap_1:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_strap_2:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_strap_3:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_strap_4:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_strap_5:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_strap_6:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_strap_7:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_servo_0:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_servo_1:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_servo_2:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_servo_3:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_buck_0:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M3_buck_0:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x10_buck_1:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M3_buck_1:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x6_pcb_0:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x6_pcb_1:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x6_pcb_2:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M3x6_pcb_3:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "axle_bolt_M5x40_L:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M5_rear_L:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "axle_bolt_M5x20_L:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M5_front_L:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "kingpin_M4x30_L:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_kingpin_L0:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_kingpin_L1:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "axle_bolt_M5x40_R:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M5_rear_R:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "axle_bolt_M5x20_R:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M5_front_R:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "kingpin_M4x30_R:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_kingpin_R0:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_kingpin_R1:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M4_steering_mid:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_steering_mid0:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_steering_mid1:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M4_steering_L:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_steering_L0:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_steering_L1:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "screw_M4_steering_R:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_steering_R0:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "nut_M4_steering_R1:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "body:1",
+    "parent": "Body"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "clamp:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "tie_rod:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "servo_clamp:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "servo_horn:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "spacer_buck:1",
+    "parent": "PCB & electronics"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "rim_rear_L:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "rim_rear_R:1",
+    "parent": "Motors & drive"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "tyre_rear_L:1",
+    "parent": "Tyres"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "tyre_rear_R:1",
+    "parent": "Tyres"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "rim_front_L:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "rim_front_R:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "tyre_front_L:1",
+    "parent": "Tyres"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "tyre_front_R:1",
+    "parent": "Tyres"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "knuckle_L:1",
+    "parent": "Front axle & steering"
+   }
+  },
+  {
+   "command": "occurrence.reparent",
+   "params": {
+    "occurrence": "knuckle_R:1",
+    "parent": "Front axle & steering"
+   }
+  }
+ ]
+}

@@ -6,7 +6,7 @@
   "qty": 1,
   "material": "ASA black, one piece (v5: chassis + nose merged), floor on the bed",
   "colour": "#8fa3b8",
-  "volume_mm3": 161304.4
+  "volume_mm3": 161217.0
  },
  {
   "name": "clamp_L",
@@ -15,7 +15,7 @@
   "qty": 1,
   "material": "ASA black, split face on the bed",
   "colour": "#e8833a",
-  "volume_mm3": 4654.1
+  "volume_mm3": 4651.7
  },
  {
   "name": "clamp_R",
@@ -24,7 +24,7 @@
   "qty": 1,
   "material": "ASA black, split face on the bed",
   "colour": "#e8833a",
-  "volume_mm3": 4654.1
+  "volume_mm3": 4651.3
  },
  {
   "name": "insert_M3x6_strap",
@@ -78,7 +78,7 @@
   "qty": 1,
   "material": "PLA (ASA later), 0.2 nozzle (m0.5 teeth)",
   "colour": "#f2f2f2",
-  "volume_mm3": 28365.6
+  "volume_mm3": 28372.2
  },
  {
   "name": "tyre_rear_L",
@@ -87,7 +87,7 @@
   "qty": 1,
   "material": "TPU 90A",
   "colour": "#222222",
-  "volume_mm3": 22949.2
+  "volume_mm3": 22906.0
  },
  {
   "name": "rim_rear_R",
@@ -96,7 +96,7 @@
   "qty": 1,
   "material": "PLA (ASA later), 0.2 nozzle (m0.5 teeth)",
   "colour": "#f2f2f2",
-  "volume_mm3": 28365.6
+  "volume_mm3": 28365.7
  },
  {
   "name": "tyre_rear_R",
@@ -159,7 +159,7 @@
   "qty": 1,
   "material": "PLA (ASA later)",
   "colour": "#f2f2f2",
-  "volume_mm3": 4746.0
+  "volume_mm3": 4751.0
  },
  {
   "name": "tyre_front_L",
@@ -168,7 +168,7 @@
   "qty": 1,
   "material": "TPU 90A",
   "colour": "#222222",
-  "volume_mm3": 6205.2
+  "volume_mm3": 6196.5
  },
  {
   "name": "rim_front_R",
@@ -186,7 +186,7 @@
   "qty": 1,
   "material": "TPU 90A",
   "colour": "#222222",
-  "volume_mm3": 6205.2
+  "volume_mm3": 6194.6
  },
  {
   "name": "bearing_MR105_front",
@@ -213,7 +213,7 @@
   "qty": 1,
   "material": "ASA black, stands on its flat feet (inner side down), spacer up",
   "colour": "#e8833a",
-  "volume_mm3": 3787.6
+  "volume_mm3": 3787.9
  },
  {
   "name": "axle_bolt_M5x20",
@@ -258,7 +258,7 @@
   "qty": 2,
   "material": "ASA black, 2 flat bars 4.5 mm over the servo tabs (one STL holds both)",
   "colour": "#e8833a",
-  "volume_mm3": 1897.7
+  "volume_mm3": 1898.0
  },
  {
   "name": "insert_M3x6_servo",

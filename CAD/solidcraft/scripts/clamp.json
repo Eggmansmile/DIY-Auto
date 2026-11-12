@@ -1,0 +1,365 @@
+{
+ "commands": [
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "R_POCKET",
+    "expression": "CAN_W / 2 + 0.2"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "R_OUT",
+    "expression": "R_POCKET + MOUNT_WALL"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "R_OUT",
+    "height": "(CAN_FACE - 0.2) - (CRADLE_Y0 + 2.2)",
+    "base": [
+     "X_MOT",
+     "CRADLE_Y0 + 2.2",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "new",
+    "name": "Strap shell",
+    "body_name": "clamp_L"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + 20) - (X_MOT - 20)",
+    "width": "(60) - (0)",
+    "height": "(AXLE_Z + CAN_H/2 + MOUNT_WALL) - (SPLIT)",
+    "corner": [
+     "X_MOT - 20",
+     "0",
+     "SPLIT"
+    ],
+    "operation": "intersect",
+    "name": "Strap top flat",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + EAR_X) - (X_MOT - EAR_X)",
+    "width": "(EAR_Y_0 + EAR_R) - (EAR_Y_0 - EAR_R)",
+    "height": "(SPLIT + EAR_T) - (SPLIT)",
+    "corner": [
+     "X_MOT - EAR_X",
+     "EAR_Y_0 - EAR_R",
+     "SPLIT"
+    ],
+    "operation": "join",
+    "name": "Ear bar 1",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "EAR_R",
+    "height": "(SPLIT + EAR_T) - (SPLIT)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_0",
+     "SPLIT"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Ear round 1A",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "EAR_R",
+    "height": "(SPLIT + EAR_T) - (SPLIT)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_0",
+     "SPLIT"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Ear round 1B",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + EAR_X) - (X_MOT - EAR_X)",
+    "width": "(EAR_Y_1 + EAR_R) - (EAR_Y_1 - EAR_R)",
+    "height": "(SPLIT + EAR_T) - (SPLIT)",
+    "corner": [
+     "X_MOT - EAR_X",
+     "EAR_Y_1 - EAR_R",
+     "SPLIT"
+    ],
+    "operation": "join",
+    "name": "Ear bar 2",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "EAR_R",
+    "height": "(SPLIT + EAR_T) - (SPLIT)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_1",
+     "SPLIT"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Ear round 2A",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "EAR_R",
+    "height": "(SPLIT + EAR_T) - (SPLIT)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_1",
+     "SPLIT"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Ear round 2B",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "R_POCKET",
+    "height": "(CAN_FACE) - (CRADLE_Y0 - 1)",
+    "base": [
+     "X_MOT",
+     "CRADLE_Y0 - 1",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "new",
+    "name": "Strap pocket",
+    "body_name": "Strap pocket"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + 20) - (X_MOT - 20)",
+    "width": "(60) - (-1)",
+    "height": "(AXLE_Z + CAN_H/2 - CLAMP_PRELOAD) - (AXLE_Z - CAN_H/2 - 0.2)",
+    "corner": [
+     "X_MOT - 20",
+     "-1",
+     "AXLE_Z - CAN_H/2 - 0.2"
+    ],
+    "operation": "intersect",
+    "name": "Strap pocket flats",
+    "targets": [
+     "Strap pocket"
+    ]
+   }
+  },
+  {
+   "command": "solid.combine",
+   "params": {
+    "target": "clamp_L",
+    "tools": [
+     "Strap pocket"
+    ],
+    "operation": "cut"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "1.7",
+    "height": "(SPLIT + EAR_T + 1) - (SPLIT - 1)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_0",
+     "SPLIT - 1"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Strap bolt hole 1A",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "3.05",
+    "height": "(SPLIT + EAR_T + 1) - (SPLIT + EAR_T - 3)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_0",
+     "SPLIT + EAR_T - 3"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Strap bolt head seat 1A",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "1.7",
+    "height": "(SPLIT + EAR_T + 1) - (SPLIT - 1)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_0",
+     "SPLIT - 1"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Strap bolt hole 1B",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "3.05",
+    "height": "(SPLIT + EAR_T + 1) - (SPLIT + EAR_T - 3)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_0",
+     "SPLIT + EAR_T - 3"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Strap bolt head seat 1B",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "1.7",
+    "height": "(SPLIT + EAR_T + 1) - (SPLIT - 1)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_1",
+     "SPLIT - 1"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Strap bolt hole 2A",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "3.05",
+    "height": "(SPLIT + EAR_T + 1) - (SPLIT + EAR_T - 3)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_1",
+     "SPLIT + EAR_T - 3"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Strap bolt head seat 2A",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "1.7",
+    "height": "(SPLIT + EAR_T + 1) - (SPLIT - 1)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_1",
+     "SPLIT - 1"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Strap bolt hole 2B",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "3.05",
+    "height": "(SPLIT + EAR_T + 1) - (SPLIT + EAR_T - 3)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_1",
+     "SPLIT + EAR_T - 3"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Strap bolt head seat 2B",
+    "targets": [
+     "clamp_L"
+    ]
+   }
+  },
+  {
+   "command": "solid.mirror",
+   "params": {
+    "bodies": [
+     "clamp_L"
+    ],
+    "plane": "XZ",
+    "name": "Mirror clamp"
+   }
+  },
+  {
+   "command": "body.rename",
+   "params": {
+    "body": "clamp_L (2)",
+    "name": "clamp_R"
+   }
+  }
+ ]
+}

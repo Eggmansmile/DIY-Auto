@@ -1,0 +1,372 @@
+{
+ "commands": [
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_CUT",
+    "expression": "0.6 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "HORN_CAP",
+    "expression": "1.5 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CL_X0",
+    "expression": "SERVO_0/2 + SERVO_CUT + 0.05 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CL_XS",
+    "expression": "7.5 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CL_X1",
+    "expression": "16.7 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CL_HW",
+    "expression": "16.4 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CL_SIDE",
+    "expression": "SERVO_1/2 + SERVO_CUT + 0.05 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CL_T",
+    "expression": "4.5 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CL_BX",
+    "expression": "12.1 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CL_BY",
+    "expression": "11.6 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_Z0",
+    "expression": "HORN_Z1 - HORN_CAP - SERVO_SPLINE_Z"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "TAB_Z0",
+    "expression": "SERVO_Z0 + SERVO_TAB_from_base"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "TAB_Z1",
+    "expression": "TAB_Z0 + SERVO_TAB_t"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CL_C",
+    "expression": "CL_BX + CL_BY + (M3_INSERT/2 + INSERT_WALL)*sqrt(2)"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "corner": [
+     "SERVO_X - CL_X1",
+     "-CL_HW",
+     "TAB_Z1"
+    ],
+    "length": "CL_X1 - CL_X0",
+    "width": "2*CL_HW",
+    "height": "CL_T",
+    "operation": "new",
+    "body_name": "servo_clamp_rear",
+    "name": "Clamp bar"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "corner": [
+     "SERVO_X - CL_X1",
+     "CL_SIDE",
+     "TAB_Z1"
+    ],
+    "length": "CL_X1 - CL_XS",
+    "width": "CL_HW - CL_SIDE",
+    "height": "CL_T",
+    "operation": "join",
+    "name": "Clamp ear +y"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "corner": [
+     "SERVO_X - CL_X1",
+     "-CL_HW",
+     "TAB_Z1"
+    ],
+    "length": "CL_X1 - CL_XS",
+    "width": "CL_HW - CL_SIDE",
+    "height": "CL_T",
+    "operation": "join",
+    "name": "Clamp ear -y"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_FREE/2",
+    "height": "CL_T + 2 mm",
+    "base": [
+     "SERVO_X - CL_BX",
+     "CL_BY",
+     "TAB_Z1 - 1 mm"
+    ],
+    "operation": "cut",
+    "name": "Screw hole rear +y"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_FREE/2",
+    "height": "CL_T + 2 mm",
+    "base": [
+     "SERVO_X - CL_BX",
+     "-CL_BY",
+     "TAB_Z1 - 1 mm"
+    ],
+    "operation": "cut",
+    "name": "Screw hole rear -y"
+   }
+  },
+  {
+   "command": "solid.mirror",
+   "params": {
+    "bodies": [
+     "servo_clamp_rear"
+    ],
+    "plane": {
+     "origin": [
+      "SERVO_X",
+      0,
+      0
+     ],
+     "normal": [
+      1,
+      0,
+      0
+     ]
+    },
+    "name": "Mirror bar to front"
+   }
+  },
+  {
+   "command": "body.rename",
+   "params": {
+    "body": "servo_clamp_rear (2)",
+    "name": "servo_clamp_front"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "SERVO_BOSS_D/2 + 0.4 mm",
+    "height": "CL_T + 2 mm",
+    "base": [
+     "SERVO_OUT",
+     0,
+     "TAB_Z1 - 1 mm"
+    ],
+    "operation": "cut",
+    "name": "Servo boss notch"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "offset": "TAB_Z1 - 1 mm",
+    "name": "Chamfer sketch"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      "SERVO_X + CL_C - 20",
+      "20"
+     ],
+     [
+      "SERVO_X + CL_C + 20",
+      "-20"
+     ],
+     [
+      "SERVO_X + CL_C + 20",
+      "20"
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      "SERVO_X + CL_C - 20",
+      "-20"
+     ],
+     [
+      "SERVO_X + CL_C + 20",
+      "20"
+     ],
+     [
+      "SERVO_X + CL_C + 20",
+      "-20"
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "CL_T + 2 mm",
+    "operation": "cut",
+    "name": "Front corner reliefs"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "offset": "TAB_Z1 - 1 mm",
+    "name": "Pin sweep sketch"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      "SERVO_OUT",
+      "-CL_SIDE"
+     ],
+     [
+      "SERVO_OUT + 30",
+      "-CL_SIDE"
+     ],
+     [
+      "SERVO_OUT + 30",
+      "CL_SIDE"
+     ],
+     [
+      "SERVO_OUT",
+      "CL_SIDE"
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.circle.center",
+   "params": {
+    "center": [
+     124.9,
+     0
+    ],
+    "radius": 10.9
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "c1.center"
+    ],
+    "type": "horizontal",
+    "value": "SERVO_OUT"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "c1.center"
+    ],
+    "type": "vertical",
+    "value": "0"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "c1"
+    ],
+    "type": "diameter",
+    "value": "2*(HORN_R - 4.3 mm)"
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "CL_T + 2 mm",
+    "operation": "cut",
+    "profiles": [
+     {
+      "point": [
+       140,
+       3
+      ]
+     }
+    ],
+    "name": "Pin bolt sweep relief"
+   }
+  }
+ ]
+}

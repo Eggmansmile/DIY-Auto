@@ -1,0 +1,347 @@
+{
+ "commands": [
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ROD_T",
+    "expression": "3.5 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ROD_W",
+    "expression": "7 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ROD_BOSS_R",
+    "expression": "5 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ROD_HOLE_D",
+    "expression": "M4_FREE"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "PIN_X",
+    "expression": "SERVO_OUT + HORN_R"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ARM_X",
+    "expression": "FAX_X - ARM_L*FAX_X/sqrt(FAX_X^2 + KING_Y^2)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ARM_Y",
+    "expression": "KING_Y - ARM_L*KING_Y/sqrt(FAX_X^2 + KING_Y^2)"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "offset": "HORN_Z1",
+    "name": "Rod L sketch"
+   }
+  },
+  {
+   "command": "sketch.slot.center_to_center",
+   "params": {
+    "p0": [
+     140.1,
+     0
+    ],
+    "p1": [
+     140.09210070116617,
+     19.145920429159375
+    ],
+    "width": 7
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a2.center"
+    ],
+    "type": "horizontal",
+    "value": "PIN_X"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a2.center"
+    ],
+    "type": "vertical",
+    "value": "0"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a1.center"
+    ],
+    "type": "horizontal",
+    "value": "ARM_X"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a1.center"
+    ],
+    "type": "vertical",
+    "value": "ARM_Y"
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "ROD_T",
+    "name": "Rod L bar",
+    "body_name": "tie_rod_L",
+    "operation": "new"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ROD_BOSS_R",
+    "height": "ROD_T",
+    "base": [
+     "PIN_X",
+     0,
+     "HORN_Z1"
+    ],
+    "operation": "join",
+    "targets": [
+     "tie_rod_L"
+    ],
+    "name": "Rod L pin boss"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ROD_BOSS_R",
+    "height": "ROD_T",
+    "base": [
+     "ARM_X",
+     "ARM_Y",
+     "HORN_Z1"
+    ],
+    "operation": "join",
+    "targets": [
+     "tie_rod_L"
+    ],
+    "name": "Rod L arm boss"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ROD_HOLE_D/2",
+    "height": "ROD_T + 2 mm",
+    "base": [
+     "PIN_X",
+     0,
+     "HORN_Z1 - 1 mm"
+    ],
+    "operation": "cut",
+    "targets": [
+     "tie_rod_L"
+    ],
+    "name": "Rod L pin hole"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ROD_HOLE_D/2",
+    "height": "ROD_T + 2 mm",
+    "base": [
+     "ARM_X",
+     "ARM_Y",
+     "HORN_Z1 - 1 mm"
+    ],
+    "operation": "cut",
+    "targets": [
+     "tie_rod_L"
+    ],
+    "name": "Rod L arm hole"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "offset": "HORN_Z1 + ROD_T",
+    "name": "Rod R sketch"
+   }
+  },
+  {
+   "command": "sketch.slot.center_to_center",
+   "params": {
+    "p0": [
+     140.1,
+     0
+    ],
+    "p1": [
+     140.09210070116617,
+     -19.145920429159375
+    ],
+    "width": 7
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a2.center"
+    ],
+    "type": "horizontal",
+    "value": "PIN_X"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a2.center"
+    ],
+    "type": "vertical",
+    "value": "0"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a1.center"
+    ],
+    "type": "horizontal",
+    "value": "ARM_X"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a1.center"
+    ],
+    "type": "vertical",
+    "value": "ARM_Y"
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "ROD_T",
+    "name": "Rod R bar",
+    "body_name": "tie_rod_R",
+    "operation": "new"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ROD_BOSS_R",
+    "height": "ROD_T",
+    "base": [
+     "PIN_X",
+     0,
+     "HORN_Z1 + ROD_T"
+    ],
+    "operation": "join",
+    "targets": [
+     "tie_rod_R"
+    ],
+    "name": "Rod R pin boss"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ROD_BOSS_R",
+    "height": "2*ROD_T",
+    "base": [
+     "ARM_X",
+     "-ARM_Y",
+     "HORN_Z1"
+    ],
+    "operation": "join",
+    "targets": [
+     "tie_rod_R"
+    ],
+    "name": "Rod R arm boss"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ROD_HOLE_D/2",
+    "height": "2*ROD_T + 2 mm",
+    "base": [
+     "PIN_X",
+     0,
+     "HORN_Z1 - 1 mm"
+    ],
+    "operation": "cut",
+    "targets": [
+     "tie_rod_R"
+    ],
+    "name": "Rod R pin hole"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ROD_HOLE_D/2",
+    "height": "2*ROD_T + 2 mm",
+    "base": [
+     "ARM_X",
+     "-ARM_Y",
+     "HORN_Z1 - 1 mm"
+    ],
+    "operation": "cut",
+    "targets": [
+     "tie_rod_R"
+    ],
+    "name": "Rod R arm hole"
+   }
+  }
+ ]
+}

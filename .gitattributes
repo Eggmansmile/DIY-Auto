@@ -5,3 +5,5 @@
 *.kicad_sch filter=homepath
 *.kicad_pcb filter=homepath
 *.kicad_pro filter=homepath
+CAD/solidcraft/scripts/*.json filter=homepath
+Scripts/cad/sc_gen/* filter=homepath

@@ -1,0 +1,353 @@
+{
+ "commands": [
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ZL0",
+    "expression": "BEAM_Z0 - GAP - LUG_T"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ZL1",
+    "expression": "BEAM_Z1 + GAP + LUG_T"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "LUG_R",
+    "expression": "6 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "Y_FOOT",
+    "expression": "KING_Y - 5.5 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ARM_X",
+    "expression": "FAX_X - ARM_L*FAX_X/sqrt(FAX_X^2 + KING_Y^2)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ARM_Y",
+    "expression": "KING_Y - ARM_L*KING_Y/sqrt(FAX_X^2 + KING_Y^2)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ARM_BOSS_R",
+    "expression": "5 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ARM_W",
+    "expression": "7 mm"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ROD_HOLE_D",
+    "expression": "M4_FREE"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "corner": [
+     "FAX_X - PLATE_HW",
+     "PLATE_Y0",
+     "ZL0"
+    ],
+    "length": "2*PLATE_HW",
+    "width": "PLATE_Y1 - PLATE_Y0",
+    "height": "ZL1 - ZL0",
+    "operation": "new",
+    "body_name": "knuckle_L",
+    "name": "Side plate"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "corner": [
+     "FAX_X - LUG_R",
+     "KING_Y",
+     "BEAM_Z1 + GAP"
+    ],
+    "length": "2*LUG_R",
+    "width": "PLATE_Y1 - KING_Y",
+    "height": "LUG_T",
+    "operation": "join",
+    "name": "Upper lug block"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "LUG_R",
+    "height": "LUG_T",
+    "base": [
+     "FAX_X",
+     "KING_Y",
+     "BEAM_Z1 + GAP"
+    ],
+    "operation": "join",
+    "name": "Upper lug round"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "corner": [
+     "FAX_X - LUG_R",
+     "KING_Y",
+     "ZL0"
+    ],
+    "length": "2*LUG_R",
+    "width": "PLATE_Y1 - KING_Y",
+    "height": "LUG_T",
+    "operation": "join",
+    "name": "Lower lug block"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "LUG_R",
+    "height": "LUG_T",
+    "base": [
+     "FAX_X",
+     "KING_Y",
+     "ZL0"
+    ],
+    "operation": "join",
+    "name": "Lower lug round"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "RACE_R",
+    "height": "FW_Y0 - PLATE_Y1",
+    "base": [
+     "FAX_X",
+     "PLATE_Y1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "join",
+    "name": "Bearing spacer"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "offset": "ARM_Z0",
+    "name": "Steering arm sketch"
+   }
+  },
+  {
+   "command": "sketch.slot.center_to_center",
+   "params": {
+    "p0": [
+     140.09210070116617,
+     19.145920429159375
+    ],
+    "p1": [
+     146,
+     29.5
+    ],
+    "width": 7
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a1.center"
+    ],
+    "type": "horizontal",
+    "value": "FAX_X - 4 mm"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a1.center"
+    ],
+    "type": "vertical",
+    "value": "PLATE_Y1 - 3 mm"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a2.center"
+    ],
+    "type": "horizontal",
+    "value": "ARM_X"
+   }
+  },
+  {
+   "command": "sketch.dimension",
+   "params": {
+    "entities": [
+     "origin",
+     "a2.center"
+    ],
+    "type": "vertical",
+    "value": "ARM_Y"
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "ARM_Z1 - ARM_Z0",
+    "operation": "join",
+    "name": "Steering arm"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ARM_BOSS_R",
+    "height": "HORN_Z1 - ARM_Z0",
+    "base": [
+     "ARM_X",
+     "ARM_Y",
+     "ARM_Z0"
+    ],
+    "operation": "join",
+    "name": "Arm boss"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "corner": [
+     "ARM_X - ARM_BOSS_R",
+     "Y_FOOT",
+     "ARM_Z1 - 0.01 mm"
+    ],
+    "length": "2*ARM_BOSS_R",
+    "width": "PLATE_Y1 - Y_FOOT",
+    "height": "HORN_Z1 - ARM_Z1 + 0.01 mm",
+    "operation": "join",
+    "name": "Arm web"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M4_FREE/2",
+    "height": "ZL1 - ZL0 + 2 mm",
+    "base": [
+     "FAX_X",
+     "KING_Y",
+     "ZL0 - 1 mm"
+    ],
+    "operation": "cut",
+    "name": "Kingpin hole"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "AXLE_PRESS/2",
+    "height": "FW_Y0 - PLATE_Y0 + 1.01 mm",
+    "base": [
+     "FAX_X",
+     "PLATE_Y0 - 1 mm",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "name": "Axle bolt hole"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XZ",
+    "offset": "PLATE_Y0 - 0.01 mm",
+    "name": "Nut pocket sketch"
+   }
+  },
+  {
+   "command": "sketch.polygon.circumscribed",
+   "params": {
+    "center": [
+     150,
+     -20
+    ],
+    "radius": 4.1,
+    "sides": 6,
+    "angle": 0
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "FRONT_NUT_Y1 - PLATE_Y0 + 0.01 mm",
+    "operation": "cut",
+    "name": "M5 nut pocket"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "ROD_HOLE_D/2",
+    "height": "HORN_Z1 - ARM_Z0 + 2 mm",
+    "base": [
+     "ARM_X",
+     "ARM_Y",
+     "ARM_Z0 - 1 mm"
+    ],
+    "operation": "cut",
+    "name": "Arm pivot hole"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "corner": [
+     "FAX_X - 30",
+     "KING_Y - 30",
+     "0"
+    ],
+    "length": "60",
+    "width": "Y_FOOT - KING_Y + 30 mm",
+    "height": "60",
+    "operation": "cut",
+    "name": "Flat feet"
+   }
+  }
+ ]
+}

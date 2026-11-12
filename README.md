@@ -7,14 +7,14 @@ Everything is generated from code. Edit the script, not the output.
 
 Assembly video: [Video/DIYAuto_assembly_v1.mp4](Video/DIYAuto_assembly_v1.mp4)
 
-## PCB (rev 8)
+## PCB (rev 9)
 
 | Top | Bottom |
 |---|---|
 | ![PCB top](docs/pcb_top.jpg) | ![PCB bottom](docs/pcb_bottom.jpg) |
 
 The TB6612 module plugs into J8/J9, the ESP32 DevKit into J2/J3. The LM2596 buck module sits on J6/J7 on a printed spacer: set it to 5.0 V before you connect J7.
-Order `KiCad/DIY-Auto_rev8_gerbers_PCBWay.zip`.
+Order `KiCad/DIY-Auto_rev9_gerbers_PCBWay.zip`.
 
 ![Electronics on the car](docs/electronics.jpg)
 
@@ -24,7 +24,7 @@ Schematic: [docs/schematic.svg](docs/schematic.svg) (PDF: [KiCad/DIY-Auto_schema
 
 | Folder | What |
 |---|---|
-| `Scripts/cad/` | build123d CAD. Dimensions in `params.py`, `assemble.py` writes STEP/STL to `CAD/parts/`, `check_all.py` checks collisions, `plates.py` makes print plates. |
+| `Scripts/cad/` | SolidCraft CAD (`CAD/DIY-Auto.sc`). Dimensions in `params.py`, `export_sc.py` writes STEP/STL to `CAD/parts/`, `check_all.py` checks collisions, `plates.py` makes print plates. |
 | `CAD/` | Generated STEP/STL per subassembly (`print/` = print orientation), print plates (`.3mf`), FreeCAD assembly, `BOM.md`. |
 | `Scripts/` | `gen_schematic.py` → `gen_pcb.py` → `route_pcb.py` → `silk_pcb.py` (KiCad), `gen_fritzing.py` (breadboard). |
 | `KiCad/` | Schematic, PCB, gerbers. |

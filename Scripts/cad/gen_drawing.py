@@ -14,18 +14,20 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle as MplRect        # build123d (via lib) has its own Rectangle
-from build123d import Compound
+import json
+from build123d import Compound, import_step
 from lib import *
-import frame, rear_drive, front_wheels, steering, electronics
 
 VERSION = "v4"
 OUT = Path(__file__).resolve().parents[2] / "Drawings"
 OUT.mkdir(exist_ok=True)
 SKIP = ("pcb_envelope", "insert_")            # envelope = clearance volume; inserts sit inside the plastic
 
-P = {}
-for m in (frame, rear_drive, front_wheels, steering, electronics):
-    P.update({k: v.shape for k, v in m.build().items() if not k.startswith(SKIP)})
+CAD = Path(__file__).resolve().parents[2] / "CAD"
+def load():                                  # SolidCraft STEPs, part list = manifest.json
+    return {m["name"]: import_step(str(CAD / "parts" / m["subassembly"] / f"{m['name']}.step"))
+            for m in json.loads((CAD / "manifest.json").read_text()) if not m["name"].startswith(SKIP)}
+P = load()
 pcb = box(PCB_X0, PCB_X0 + 100, -35, 35, PCB_Z, PCB_Z + 1.6)      # the board itself, without the lead envelope
 car = Compound(children=[*P.values(), pcb])
 bb = car.bounding_box()
@@ -45,7 +47,20 @@ FX, FY = 326.0, 34.0       # front view: (y, z), the car's left side is on the r
 
 
 def project(origin, up, ox, oy):
-    vis, _ = car.project_to_viewport(origin, up, (0, 0, 0))
+    # shortcut: a part whose BSplines break OCC's HLR (the bd_warehouse thread nuts) is drawn as its bounding box in that view
+    def hlr(shape):
+        return shape.project_to_viewport(origin, up, (0, 0, 0))
+    try:
+        vis, _ = hlr(car)
+    except Exception:
+        parts = []
+        for k, v in load().items():          # fresh copies: Compound() / HLR on shared shapes corrupts later projections
+            try:
+                hlr(v); parts.append(v)
+            except Exception:
+                b = v.bounding_box(); print("HLR fallback bbox:", k)
+                parts.append(box(b.min.X, b.max.X, b.min.Y, b.max.Y, b.min.Z, b.max.Z))
+        vis, _ = hlr(Compound(children=[*parts, pcb]))
     for e in vis:
         n = 2 if e.geom_type.name == "LINE" else max(6, int(e.length / 0.4))
         pts = [e.position_at(i / (n - 1)) for i in range(n)]
@@ -123,12 +138,12 @@ notes = [
     "2  Assen: M5-bouten. Achter M5×35 + nylock in de toren, voor M5×20 + moer in de fusee.",
     "     Schijfje 5×7×0,5 en kraag Ø6,5 raken alleen de binnenring van de MR105.",
     "3  Sturing: fusees op M3×25 (kop onder, nylock boven), servo SM-S2309S rechtop,",
-    f"     hoorn ±{steering.HORN_LOCK:g}° → binnenwiel 30°; stangen op M2 + nylock.",
+    f"     hoorn ±{17.5:g}° → binnenwiel 30°; stangen op M2 + nylock.",
     "4  Accu AOLIKES 2S 66,3 × 37,1 × 18,5 onder de print, elastiek over 4 haakjes.",
     "5  PLA voor de prototypes (later ASA), banden TPU 90A.",
     "",
     "Verborgen lijnen weggelaten. Lijnen = projectie van het CAD-model",
-    "(Scripts/cad, build123d). Maten in mm.",
+    "(CAD/parts, SolidCraft). Maten in mm.",
 ]
 y = 270
 for s in notes:

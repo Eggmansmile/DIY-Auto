@@ -1,0 +1,204 @@
+{
+ "commands": [
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Rim lip R (outer)",
+    "radius": "FRIM_R + RIM_LIP",
+    "height": 1,
+    "base": [
+     "FAX_X",
+     "-FW_Y1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "new",
+    "body_name": "rim_front_R"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Rim tyre seat R",
+    "radius": "FRIM_R",
+    "height": "FW_Y1 - FW_Y0 - 2",
+    "base": [
+     "FAX_X",
+     "-FW_Y1 + 1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "join",
+    "targets": [
+     "rim_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Rim lip R (inner)",
+    "radius": "FRIM_R + RIM_LIP",
+    "height": 1,
+    "base": [
+     "FAX_X",
+     "-FW_Y0 - 1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "join",
+    "targets": [
+     "rim_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Rim ring bore R",
+    "radius": "FRIM_R - 2.5",
+    "height": "FW_Y1 - FW_Y0 + 2",
+    "base": [
+     "FAX_X",
+     "-FW_Y1 - 1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "rim_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Rim web R",
+    "radius": "FRIM_R - 1",
+    "height": 2.5,
+    "base": [
+     "FAX_X",
+     "-FW_Y1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "join",
+    "targets": [
+     "rim_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Rim hub R",
+    "radius": 7,
+    "height": "FW_Y1 - FW_Y0",
+    "base": [
+     "FAX_X",
+     "-FW_Y1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "join",
+    "targets": [
+     "rim_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Axle clearance R",
+    "radius": "AXLE_FREE / 2",
+    "height": "FW_Y1 - FW_Y0 + 2",
+    "base": [
+     "FAX_X",
+     "-FW_Y1 - 1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "rim_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Bearing seat inner R",
+    "radius": "SEAT_D / 2",
+    "height": "BEARING_W + 1",
+    "base": [
+     "FAX_X",
+     "-FW_Y0 - BEARING_W",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "rim_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Bearing seat outer R",
+    "radius": "SEAT_D / 2",
+    "height": "BEARING_W + 1",
+    "base": [
+     "FAX_X",
+     "-FW_Y1 - 1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "rim_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "name": "Tyre key rib R",
+    "center": [
+     "FAX_X",
+     "-(FW_Y0 + FW_Y1) / 2",
+     "FAX_Z - FRIM_R - 0.15"
+    ],
+    "length": 2,
+    "width": "FW_Y1 - FW_Y0 - 2",
+    "height": 1.3,
+    "operation": "join",
+    "targets": [
+     "rim_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.pattern.circular",
+   "params": {
+    "name": "Tyre key ribs R",
+    "features": [
+     "Tyre key rib R"
+    ],
+    "axis": {
+     "origin": [
+      "FAX_X",
+      0,
+      "FAX_Z"
+     ],
+     "dir": [
+      0,
+      1,
+      0
+     ]
+    },
+    "count": 3
+   }
+  }
+ ]
+}

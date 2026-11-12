@@ -1,0 +1,28 @@
+{
+ "commands": [
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/knuckle_L.sc",
+    "name": "knuckle_L"
+   }
+  },
+  {
+   "command": "solid.mirror",
+   "params": {
+    "name": "Mirror to R",
+    "bodies": [
+     "knuckle_L"
+    ],
+    "plane": "XZ"
+   }
+  },
+  {
+   "command": "body.rename",
+   "params": {
+    "body": "knuckle_L (2)",
+    "name": "knuckle_R"
+   }
+  }
+ ]
+}

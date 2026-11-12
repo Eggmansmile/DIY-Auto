@@ -1,0 +1,28 @@
+{
+ "commands": [
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/tyre_front_R.sc",
+    "name": "tyre_front_R"
+   }
+  },
+  {
+   "command": "solid.mirror",
+   "params": {
+    "name": "Mirror to L",
+    "bodies": [
+     "tyre_front_R"
+    ],
+    "plane": "XZ"
+   }
+  },
+  {
+   "command": "body.rename",
+   "params": {
+    "body": "tyre_front_R (2)",
+    "name": "tyre_front_L"
+   }
+  }
+ ]
+}

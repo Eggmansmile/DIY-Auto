@@ -1,0 +1,28 @@
+{
+ "commands": [
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/rim_front_R.sc",
+    "name": "rim_front_R"
+   }
+  },
+  {
+   "command": "solid.mirror",
+   "params": {
+    "name": "Mirror to L",
+    "bodies": [
+     "rim_front_R"
+    ],
+    "plane": "XZ"
+   }
+  },
+  {
+   "command": "body.rename",
+   "params": {
+    "body": "rim_front_R (2)",
+    "name": "rim_front_L"
+   }
+  }
+ ]
+}

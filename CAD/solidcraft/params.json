@@ -1,0 +1,1118 @@
+{
+ "commands": [
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "AXLE_Z",
+    "expression": "35.0 mm",
+    "comment": "rear axle height = rear wheel radius"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "RW_R",
+    "expression": "35.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "RIM_R",
+    "expression": "29.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "RW_Y0",
+    "expression": "52.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "RW_Y1",
+    "expression": "72.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "FAX_X",
+    "expression": "150.0 mm",
+    "comment": "front axle"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "FAX_Z",
+    "expression": "20.0 mm",
+    "comment": "front axle"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "FW_R",
+    "expression": "20.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "FRIM_R",
+    "expression": "15.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "FW_Y0",
+    "expression": "34.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "FW_Y1",
+    "expression": "46.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "MOD",
+    "expression": "0.5 mm",
+    "comment": "2026-09-28: pinion measured \u00d85.88 -> m0.5 (the STL's 7.2 was wrong); 9:1"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "Z_PIN",
+    "expression": "10",
+    "comment": "2026-09-28: pinion measured \u00d85.88 -> m0.5 (the STL's 7.2 was wrong); 9:1",
+    "unit": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "Z_GEAR",
+    "expression": "90",
+    "comment": "2026-09-28: pinion measured \u00d85.88 -> m0.5 (the STL's 7.2 was wrong); 9:1",
+    "unit": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "GEAR_W",
+    "expression": "5.0 mm",
+    "comment": "2026-09-28: pinion measured \u00d85.88 -> m0.5 (the STL's 7.2 was wrong); 9:1"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BACKLASH",
+    "expression": "0.30 mm",
+    "comment": "removed from the tooth thickness at the pitch circle (\u22480.13 mm flank gap)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "GY0",
+    "expression": "RW_Y0 - GEAR_W",
+    "comment": "gear plane 47..52"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "X_MOT",
+    "expression": "-MOD * (Z_PIN + Z_GEAR) / 2",
+    "comment": "-25"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CAN_W",
+    "expression": "24.0 mm",
+    "comment": "from Ruben's motor STL (was 28.4)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CAN_H",
+    "expression": "18.3 mm",
+    "comment": "from Ruben's motor STL (was 28.4)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CAN_L",
+    "expression": "30.3 mm",
+    "comment": "from Ruben's motor STL (was 28.4)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CAN_FACE",
+    "expression": "GY0 - 2.6",
+    "comment": "44.4: shaft sticks out 7.6, so the pinion (5 wide) is face+2.6 .. face+7.6"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "WALL_Y1",
+    "expression": "CAN_FACE + 2.0",
+    "comment": "46.4: gear plate 2.0 (boss 1.9 sits in it), 0.6 mm free to rim and pinion"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "FLOOR_Z0",
+    "expression": "10.0 mm",
+    "comment": "2026-11-05: floor 3 -> 8 mm (upward, ground clearance stays 10): 3 mm flexed"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "FLOOR_Z1",
+    "expression": "18.0 mm",
+    "comment": "2026-11-05: floor 3 -> 8 mm (upward, ground clearance stays 10): 3 mm flexed"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "NOSE_Z1",
+    "expression": "18.0 mm",
+    "comment": "nose (x > 100) as thick as the floor (8 mm, z 10..18); the steering beam (z 15..25) sits partly inside it"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "NOSE_X0",
+    "expression": "100.0 mm",
+    "comment": "nose (x > 100) as thick as the floor (8 mm, z 10..18); the steering beam (z 15..25) sits partly inside it"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CLAMP_X0",
+    "expression": "-44.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CLAMP_X1",
+    "expression": "-4.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CLAMP_SPLIT",
+    "expression": "42.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CLAMP_TOP",
+    "expression": "50.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BEARING_D",
+    "expression": "10.0 mm",
+    "comment": "MR105: 5 x 10 x 4"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BEARING_W",
+    "expression": "4.0 mm",
+    "comment": "MR105: 5 x 10 x 4"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "AXLE_PRESS",
+    "expression": "5.1 mm",
+    "comment": "printed \u00d85 axle: press / turns free; M3 through (ISO 273 normal 3.4 + FDM)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "AXLE_FREE",
+    "expression": "5.4 mm",
+    "comment": "printed \u00d85 axle: press / turns free; M3 through (ISO 273 normal 3.4 + FDM)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "M3_FREE",
+    "expression": "3.5 mm",
+    "comment": "printed \u00d85 axle: press / turns free; M3 through (ISO 273 normal 3.4 + FDM)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "M2_INSERT",
+    "expression": "3.2 mm",
+    "comment": "CNC Kitchen: M2 D2 3.2; Hilitchi M3 OD 5.0 -> 4.2 (between CNC Kitchen 4.0 for D1 4.6 and 4.4 for D1 5.0)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "M3_INSERT",
+    "expression": "4.2 mm",
+    "comment": "CNC Kitchen: M2 D2 3.2; Hilitchi M3 OD 5.0 -> 4.2 (between CNC Kitchen 4.0 for D1 4.6 and 4.4 for D1 5.0)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BATT_0",
+    "expression": "13.0 mm",
+    "comment": "ERYNK 2S 1500 mAh measured 2026-11-05: 80 x 41 x 18.72, centred on x = 53"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BATT_1",
+    "expression": "93.0 mm",
+    "comment": "ERYNK 2S 1500 mAh measured 2026-11-05: 80 x 41 x 18.72, centred on x = 53"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BATT_2",
+    "expression": "20.5 mm",
+    "comment": "ERYNK 2S 1500 mAh measured 2026-11-05: 80 x 41 x 18.72, centred on x = 53"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BATT_3",
+    "expression": "18.72 mm",
+    "comment": "ERYNK 2S 1500 mAh measured 2026-11-05: 80 x 41 x 18.72, centred on x = 53"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BATT_SEAT",
+    "expression": "3.0 mm",
+    "comment": "sunk 3 mm into the 8 mm floor (5 mm stays): 4.3 mm free under the PCB leads for the elastic band"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "PCB_X0",
+    "expression": "5.0 mm",
+    "comment": "v5 (2026-11-04): 3 mm forward so the rear standoffs clear an M5x40 rear axle bolt"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "PCB_Z",
+    "expression": "40.0 mm",
+    "comment": "v5 (2026-11-04): 3 mm forward so the rear standoffs clear an M5x40 rear axle bolt"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "KING_Y",
+    "expression": "20.5 mm",
+    "comment": "kingpin"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BEAM_R",
+    "expression": "4.6 mm",
+    "comment": "beam end: round around the kingpin, z 15..25"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BEAM_Z0",
+    "expression": "15.0 mm",
+    "comment": "beam end: round around the kingpin, z 15..25"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BEAM_Z1",
+    "expression": "25.0 mm",
+    "comment": "beam end: round around the kingpin, z 15..25"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "PLATE_Y0",
+    "expression": "KING_Y + BEAM_R + 0.5",
+    "comment": "knuckle side plate, holds the front axle (v5: 6.9 thick, spacer 1.5)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "PLATE_Y1",
+    "expression": "32.5 mm",
+    "comment": "knuckle side plate, holds the front axle (v5: 6.9 thick, spacer 1.5)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "LUG_T",
+    "expression": "4.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "GAP",
+    "expression": "0.4 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ARM_L",
+    "expression": "10.0 mm",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ARM_Z0",
+    "expression": "BEAM_Z1 + GAP",
+    "comment": "25.4..28.4: steering arm in the plane of the upper lug (servo upright,"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ARM_Z1",
+    "expression": "BEAM_Z1 + GAP + LUG_T",
+    "comment": "25.4..28.4: steering arm in the plane of the upper lug (servo upright,"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "LOCK",
+    "expression": "30.0 deg",
+    "comment": "checked for collisions at \u00b1LOCK"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_0",
+    "expression": "23.0 mm",
+    "comment": "body length (x), thickness (y), body height: GlenSearle servo-s2309s.scad (GitHub), chosen by Ruben 2026-11-05"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_1",
+    "expression": "12.3 mm",
+    "comment": "body length (x), thickness (y), body height: GlenSearle servo-s2309s.scad (GitHub), chosen by Ruben 2026-11-05"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_2",
+    "expression": "22.0 mm",
+    "comment": "body length (x), thickness (y), body height: GlenSearle servo-s2309s.scad (GitHub), chosen by Ruben 2026-11-05"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_SHAFT_DX",
+    "expression": "6.5 mm",
+    "comment": "shaft 5.0 from the near body end (GitHub model AxleOffset; Ruben's caliper agrees)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_BOSS_Z",
+    "expression": "25.5 mm",
+    "comment": "GitHub model: round top \u00d812.3, 10 above the tab underside"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_BOSS_D",
+    "expression": "12.3 mm",
+    "comment": "GitHub model: round top \u00d812.3, 10 above the tab underside"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_SPLINE_Z",
+    "expression": "29.5 mm",
+    "comment": "spline top: GitHub model (14 above the tab underside); \u00d8: Ruben's caliper (horn press fit, the model's 4.9 is a clearance)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_SPLINE_D",
+    "expression": "4.76 mm",
+    "comment": "spline top: GitHub model (14 above the tab underside); \u00d8: Ruben's caliper (horn press fit, the model's 4.9 is a clearance)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_TAB_span",
+    "expression": "31.8 mm",
+    "comment": "GitHub model: flange 31.8 x 2.3, 15.5 above the base"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_TAB_t",
+    "expression": "2.3 mm",
+    "comment": "GitHub model: flange 31.8 x 2.3, 15.5 above the base"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_TAB_from_base",
+    "expression": "15.5 mm",
+    "comment": "GitHub model: flange 31.8 x 2.3, 15.5 above the base"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_TAB_hole_dx",
+    "expression": "13.9 mm",
+    "comment": "GitHub model: flange 31.8 x 2.3, 15.5 above the base"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_TAB_hole_d",
+    "expression": "1.7 mm",
+    "comment": "GitHub model: flange 31.8 x 2.3, 15.5 above the base"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_OUT",
+    "expression": "124.9 mm",
+    "comment": "output shaft x (v3b: 6 mm back so the forward horn arm reaches the arm ends; rear post just inside the chassis)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_X",
+    "expression": "SERVO_OUT - SERVO_SHAFT_DX",
+    "comment": ""
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "HORN_Z1",
+    "expression": "36.0 mm",
+    "comment": "servo UPRIGHT (2026-10-01): horn top face = tie rod plane, horn 1.5 thick below it on the"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "PLATE_HW",
+    "expression": "7.5 mm",
+    "comment": "knuckle side plate half length in x (v5: 3.4 mm wall around the M5 nut pocket)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "HORN_R",
+    "expression": "15.2 mm",
+    "comment": "design value (printed horn): single-arm horn pointing forward, hole at x = SERVO_OUT + HORN_R \u2248 arm ends (140.1):"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "KINGPIN_1",
+    "expression": "30 mm",
+    "comment": "v5: ISO 4762 M4x30, head DOWN, 2 jammed plain M4 nuts on top (no locknuts): lugs 10.6..29.4 + 6.4 nuts + 1 = 26.2; old: M3x25 + nylock, lugs 11.6..28.4 leave 8.2 mm past the lug,"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "TOWER_0",
+    "expression": "-6.5 mm",
+    "comment": "rear axle tower x0, x1, y0 (to WALL_Y1, z FLOOR_Z1..CLAMP_SPLIT); x0 -5 -> -6.5 for the nut slot wall"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "TOWER_1",
+    "expression": "8.0 mm",
+    "comment": "rear axle tower x0, x1, y0 (to WALL_Y1, z FLOOR_Z1..CLAMP_SPLIT); x0 -5 -> -6.5 for the nut slot wall"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "TOWER_2",
+    "expression": "35.0 mm",
+    "comment": "rear axle tower x0, x1, y0 (to WALL_Y1, z FLOOR_Z1..CLAMP_SPLIT); x0 -5 -> -6.5 for the nut slot wall"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "STANDOFF_R",
+    "expression": "5.0 mm",
+    "comment": "PCB standoff; 4.5 would touch the floor edge tangentially (non-manifold)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CRADLE_Y0",
+    "expression": "CAN_FACE - CAN_L - 2",
+    "comment": "13.0: back stop behind the can"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SPLIT",
+    "expression": "AXLE_Z",
+    "comment": "clamp split at the motor axis"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "MOUNT_WALL",
+    "expression": "3.0 mm",
+    "comment": "saddle / strap wall around the can pocket (pocket = can + 0.2)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "EAR_X",
+    "expression": "17.5 mm",
+    "comment": "ears at X_MOT \u00b1 EAR_X, strap ear thickness; r 4.0 = 1.9 wall around the M3 insert (2026-10-24: no M2)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "EAR_R",
+    "expression": "5.0 mm",
+    "comment": "ears at X_MOT \u00b1 EAR_X, strap ear thickness; r 4.0 = 1.9 wall around the M3 insert (2026-10-24: no M2)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "EAR_T",
+    "expression": "4.5 mm",
+    "comment": "ears at X_MOT \u00b1 EAR_X, strap ear thickness; r 4.0 = 1.9 wall around the M3 insert (2026-10-24: no M2)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "EAR_Y_0",
+    "expression": "17.0 mm",
+    "comment": "rear pair on the rear saddle, front pair just behind the axle tower"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "EAR_Y_1",
+    "expression": "29.8 mm",
+    "comment": "rear pair on the rear saddle, front pair just behind the axle tower"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "GEAR_PLATE_X0",
+    "expression": "-40.0 mm",
+    "comment": "gear plate from here into the axle tower, y CAN_FACE..WALL_Y1"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CLAMP_PRELOAD",
+    "expression": "0.2 mm",
+    "comment": "strap pocket 0.2 lower than the can flat: screws press the motor down"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SEAT_D",
+    "expression": "10.15 mm",
+    "comment": "MR105 press seat: 10.0 was nearly impossible to press (Ruben 2026-09-30); +0.15 gives ~0.1-0.2 interference after FDM undersize"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "RACE_R",
+    "expression": "3.25 mm",
+    "comment": "spacers touch only the bearing inner race (race OD \u2248 6.6)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "RIM_LIP",
+    "expression": "0.8 mm",
+    "comment": "lips on the rim edges, tyre 0.3 mm undersize on the rim"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "TYRE_FIT",
+    "expression": "0.3 mm",
+    "comment": "lips on the rim edges, tyre 0.3 mm undersize on the rim"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "AXLE_FLAT",
+    "expression": "0.4 mm",
+    "comment": "printed axles: flat on the underside to print lying down"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SHIM_0",
+    "expression": "5.3 mm",
+    "comment": "stainless shim washer ID, OD, thickness"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SHIM_1",
+    "expression": "7.0 mm",
+    "comment": "stainless shim washer ID, OD, thickness"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SHIM_2",
+    "expression": "0.5 mm",
+    "comment": "stainless shim washer ID, OD, thickness"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "AXLE_BOLT_REAR_1",
+    "expression": "40 mm",
+    "comment": "v5: ISO 4762 M5x40 (Ruben has 30/40): end 7.5 mm past the plain nut, 2.5 mm out of the tower"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "AXLE_BOLT_FRONT_1",
+    "expression": "20 mm",
+    "comment": "ISO 4762 M5x20: a nylock would hit the beam end, so a plain nut in a pocket + threadlocker"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "NUT_M5_af",
+    "expression": "8.0 mm",
+    "comment": "DIN 985 / DIN 934 M5: across flats, heights; gap = pocket clearance"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "NUT_M5_h_nyl",
+    "expression": "5.0 mm",
+    "comment": "DIN 985 / DIN 934 M5: across flats, heights; gap = pocket clearance"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "NUT_M5_h",
+    "expression": "4.0 mm",
+    "comment": "DIN 985 / DIN 934 M5: across flats, heights; gap = pocket clearance"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "NUT_M5_gap",
+    "expression": "0.2 mm",
+    "comment": "DIN 985 / DIN 934 M5: across flats, heights; gap = pocket clearance"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "REAR_NUT_Y0",
+    "expression": "38.2 mm",
+    "comment": "nut slot in the tower (sized for a nylock, a plain nut fits): y 39.0 .. 44.2, dropped in from the top (open under the PCB)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "FRONT_NUT_Y1",
+    "expression": "30.4 mm",
+    "comment": "nut pocket in the knuckle plate: 4.8 deep (ISO 4032 M5 = 4.7), 2.1 mm wall behind it"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "TOWER_TOP",
+    "expression": "PCB_Z - 0.5",
+    "comment": "PCB edge runs 0.5 mm over the rear axle tower"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BUCK_L",
+    "expression": "43.2 mm",
+    "comment": "2026-11-05: LM2596 ON THE PCB (KiCad J6/J7, centre 163.6/156.5 -> car), printed 3 mm spacers; holes from the Handsontec drawing"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BUCK_W",
+    "expression": "21.0 mm",
+    "comment": "2026-11-05: LM2596 ON THE PCB (KiCad J6/J7, centre 163.6/156.5 -> car), printed 3 mm spacers; holes from the Handsontec drawing"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BUCK_H",
+    "expression": "14.0 mm",
+    "comment": "2026-11-05: LM2596 ON THE PCB (KiCad J6/J7, centre 163.6/156.5 -> car), printed 3 mm spacers; holes from the Handsontec drawing"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BUCK_t",
+    "expression": "1.6 mm",
+    "comment": "2026-11-05: LM2596 ON THE PCB (KiCad J6/J7, centre 163.6/156.5 -> car), printed 3 mm spacers; holes from the Handsontec drawing"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BUCK_cx",
+    "expression": "41.4 mm",
+    "comment": "2026-11-05: LM2596 ON THE PCB (KiCad J6/J7, centre 163.6/156.5 -> car), printed 3 mm spacers; holes from the Handsontec drawing"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BUCK_cy",
+    "expression": "21.5 mm",
+    "comment": "2026-11-05: LM2596 ON THE PCB (KiCad J6/J7, centre 163.6/156.5 -> car), printed 3 mm spacers; holes from the Handsontec drawing"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BUCK_standoff",
+    "expression": "3.0 mm",
+    "comment": "2026-11-05: LM2596 ON THE PCB (KiCad J6/J7, centre 163.6/156.5 -> car), printed 3 mm spacers; holes from the Handsontec drawing"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BUCK_hole_dx",
+    "expression": "29.97 mm",
+    "comment": "2026-11-05: LM2596 ON THE PCB (KiCad J6/J7, centre 163.6/156.5 -> car), printed 3 mm spacers; holes from the Handsontec drawing"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BUCK_hole_dy",
+    "expression": "16.0 mm",
+    "comment": "2026-11-05: LM2596 ON THE PCB (KiCad J6/J7, centre 163.6/156.5 -> car), printed 3 mm spacers; holes from the Handsontec drawing"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SW_PLATE_x0",
+    "expression": "-46.0 mm",
+    "comment": "KCD11 rocker, snap-in 19 x 13"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SW_PLATE_t",
+    "expression": "2.5 mm",
+    "comment": "KCD11 rocker, snap-in 19 x 13"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SW_PLATE_half_w",
+    "expression": "12.5 mm",
+    "comment": "KCD11 rocker, snap-in 19 x 13"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SW_PLATE_cut_w",
+    "expression": "19.0 mm",
+    "comment": "KCD11 rocker, snap-in 19 x 13"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SW_PLATE_cut_h",
+    "expression": "13.0 mm",
+    "comment": "KCD11 rocker, snap-in 19 x 13"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SW_PLATE_zc",
+    "expression": "38.0 mm",
+    "comment": "KCD11 rocker, snap-in 19 x 13"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "DEVKIT_cx",
+    "expression": "PCB_X0 + 73.3",
+    "comment": "ESP32 DevKit on 8.5 mm sockets (from the KiCad placement)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "DEVKIT_cy",
+    "expression": "10.2 mm",
+    "comment": "ESP32 DevKit on 8.5 mm sockets (from the KiCad placement)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "DEVKIT_L",
+    "expression": "51.5 mm",
+    "comment": "ESP32 DevKit on 8.5 mm sockets (from the KiCad placement)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "DEVKIT_W",
+    "expression": "28.0 mm",
+    "comment": "ESP32 DevKit on 8.5 mm sockets (from the KiCad placement)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BATT_STOP_gap",
+    "expression": "0.4 mm",
+    "comment": "end walls with a 14 mm notch for the leads"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BATT_STOP_wall",
+    "expression": "3.0 mm",
+    "comment": "end walls with a 14 mm notch for the leads"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BATT_STOP_h",
+    "expression": "8.0 mm",
+    "comment": "end walls with a 14 mm notch for the leads"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "BATT_STOP_notch",
+    "expression": "14.0 mm",
+    "comment": "end walls with a 14 mm notch for the leads"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "HOOK_t",
+    "expression": "4.0 mm",
+    "comment": "elastic band hooks each side, tip outward (45\u00b0 underside);"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "HOOK_w",
+    "expression": "8.0 mm",
+    "comment": "elastic band hooks each side, tip outward (45\u00b0 underside);"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "HOOK_top",
+    "expression": "29.5 mm",
+    "comment": "elastic band hooks each side, tip outward (45\u00b0 underside);"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "HOOK_tip",
+    "expression": "2.0 mm",
+    "comment": "elastic band hooks each side, tip outward (45\u00b0 underside);"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "HOOK_x_0",
+    "expression": "26.0 mm",
+    "comment": "elastic band hooks each side, tip outward (45\u00b0 underside);"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "HOOK_x_1",
+    "expression": "80.0 mm",
+    "comment": "elastic band hooks each side, tip outward (45\u00b0 underside);"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "M4_FREE",
+    "expression": "4.5 mm",
+    "comment": "M4 through (kingpins, steering pivots)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "MIN_WALL",
+    "expression": "3.0 mm",
+    "comment": "load paths / solid plastic around a heat insert"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "INSERT_WALL",
+    "expression": "2.5 mm",
+    "comment": "load paths / solid plastic around a heat insert"
+   }
+  }
+ ]
+}

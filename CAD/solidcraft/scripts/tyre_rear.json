@@ -1,0 +1,28 @@
+{"commands": [
+ {"command": "sketch.create", "params": {"plane": "XY", "offset": "AXLE_Z", "name": "Tyre profile sketch"}},
+ {"command": "sketch.line", "params": {"points": [
+   ["RIM_R - TYRE_FIT", "-(RW_Y0 + 1)"],
+   ["RIM_R + RIM_LIP - TYRE_FIT", "-(RW_Y0 + 1)"],
+   ["RIM_R + RIM_LIP - TYRE_FIT", "-RW_Y0"],
+   ["RW_R", "-RW_Y0"],
+   ["RW_R", "-RW_Y1"],
+   ["RIM_R + RIM_LIP - TYRE_FIT", "-RW_Y1"],
+   ["RIM_R + RIM_LIP - TYRE_FIT", "-(RW_Y1 - 1)"],
+   ["RIM_R - TYRE_FIT", "-(RW_Y1 - 1)"]], "closed": true}},
+ {"command": "sketch.fillet", "params": {"a": "l3", "b": "l4", "radius": "3"}},
+ {"command": "sketch.fillet", "params": {"a": "l4", "b": "l5", "radius": "3"}},
+ {"command": "sketch.finish", "params": {}},
+ {"command": "solid.revolve", "params": {"sketch": "Tyre profile sketch", "axis": "y", "name": "Tyre profile", "body_name": "tyre_rear_R"}},
+ {"command": "sketch.create", "params": {"plane": "YZ", "offset": "RW_R - 1.2", "name": "Groove sketch"}},
+ {"command": "sketch.rectangle.two_point", "params": {"p0": ["-(RW_Y0 + 3)", "AXLE_Z - 0.8"], "p1": ["-(RW_Y1 - 3)", "AXLE_Z + 0.8"]}},
+ {"command": "sketch.finish", "params": {}},
+ {"command": "solid.extrude", "params": {"sketch": "Groove sketch", "distance": "2.4", "operation": "cut", "targets": ["tyre_rear_R"], "name": "Tread groove"}},
+ {"command": "solid.pattern.circular", "params": {"features": ["Tread groove"], "axis": {"origin": [0, 0, "AXLE_Z"], "dir": [0, 1, 0]}, "count": 36, "name": "Tread grooves"}},
+ {"command": "sketch.create", "params": {"plane": "XY", "offset": "AXLE_Z - RIM_R - 1.1", "name": "Key groove sketch"}},
+ {"command": "sketch.rectangle.two_point", "params": {"p0": [-1.15, "-(RW_Y0 + 1)"], "p1": [1.15, "-(RW_Y1 - 1)"]}},
+ {"command": "sketch.finish", "params": {}},
+ {"command": "solid.extrude", "params": {"sketch": "Key groove sketch", "distance": "1.6", "operation": "cut", "targets": ["tyre_rear_R"], "name": "Key groove"}},
+ {"command": "solid.pattern.circular", "params": {"features": ["Key groove"], "axis": {"origin": [0, 0, "AXLE_Z"], "dir": [0, 1, 0]}, "count": 3, "name": "Key grooves"}},
+ {"command": "solid.mirror", "params": {"bodies": ["tyre_rear_R"], "plane": "XZ"}},
+ {"command": "body.rename", "params": {"body": "tyre_rear_R (2)", "name": "tyre_rear_L"}}
+]}

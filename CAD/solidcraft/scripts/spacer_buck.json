@@ -1,0 +1,6 @@
+{"commands": [
+ {"command": "solid.cylinder", "params": {"radius": 3.0, "height": "BUCK_standoff", "base": ["BUCK_cx - BUCK_hole_dx / 2", "BUCK_cy + BUCK_hole_dy / 2", "PCB_Z + 1.6"], "operation": "new", "body_name": "spacer_buck", "name": "Spacer outer 1"}},
+ {"command": "solid.cylinder", "params": {"radius": 3.0, "height": "BUCK_standoff", "base": ["BUCK_cx + BUCK_hole_dx / 2", "BUCK_cy - BUCK_hole_dy / 2", "PCB_Z + 1.6"], "operation": "join", "name": "Spacer outer 2"}},
+ {"command": "solid.cylinder", "params": {"radius": 1.75, "height": "BUCK_standoff + 1.6 + 1", "base": ["BUCK_cx - BUCK_hole_dx / 2", "BUCK_cy + BUCK_hole_dy / 2", "PCB_Z"], "operation": "cut", "name": "Spacer bore 1"}},
+ {"command": "solid.cylinder", "params": {"radius": 1.75, "height": "BUCK_standoff + 1.6 + 1", "base": ["BUCK_cx + BUCK_hole_dx / 2", "BUCK_cy - BUCK_hole_dy / 2", "PCB_Z"], "operation": "cut", "name": "Spacer bore 2"}}
+]}

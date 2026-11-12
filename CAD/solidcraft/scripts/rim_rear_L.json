@@ -1,0 +1,28 @@
+{
+ "commands": [
+  {
+   "command": "component.insert_design",
+   "params": {
+    "path": "CAD/solidcraft/parts/rim_rear_R.sc",
+    "name": "rim_rear_R"
+   }
+  },
+  {
+   "command": "solid.mirror",
+   "params": {
+    "name": "Mirror to L",
+    "bodies": [
+     "rim_rear_R"
+    ],
+    "plane": "XZ"
+   }
+  },
+  {
+   "command": "body.rename",
+   "params": {
+    "body": "rim_rear_R (2)",
+    "name": "rim_rear_L"
+   }
+  }
+ ]
+}

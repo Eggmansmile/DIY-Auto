@@ -1,6 +1,6 @@
 # DIY-Auto — BOM uit het CAD-model
 
-Gegenereerd door `Scripts/cad/assemble.py`. Aankoopstatus en links: [[DIY Auto BOM]].
+Gegenereerd door `Scripts/cad/export_sc.py`. Aankoopstatus en links: [[DIY Auto BOM]].
 
 ## Geprint
 

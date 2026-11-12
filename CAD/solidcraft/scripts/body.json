@@ -1,0 +1,1327 @@
+{
+ "commands": [
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "R_POCKET",
+    "expression": "CAN_W / 2 + 0.2"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "R_OUT",
+    "expression": "R_POCKET + MOUNT_WALL"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "Z_LO",
+    "expression": "FLOOR_Z1 - 0.01"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "YO",
+    "expression": "BATT_2 + BATT_STOP_gap + BATT_STOP_wall"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "SERVO_Z0",
+    "expression": "HORN_Z1 - 1.5 - SERVO_SPLINE_Z"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "TAB_Z0",
+    "expression": "SERVO_Z0 + SERVO_TAB_from_base"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "TAB_Z1",
+    "expression": "TAB_Z0 + SERVO_TAB_t"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "C_X0",
+    "expression": "SERVO_0 / 2 + 0.6 + 0.05"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "C_XS",
+    "expression": "7.5"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "C_X1",
+    "expression": "16.7"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "C_HW",
+    "expression": "16.4"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "C_SIDE",
+    "expression": "SERVO_1 / 2 + 0.6 + 0.05"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "C_SLOT",
+    "expression": "SERVO_1 / 2 + 0.5"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "C_BX",
+    "expression": "12.1"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "C_BY",
+    "expression": "11.6"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "CHAM_C",
+    "expression": "C_BX + C_BY + (M3_INSERT / 2 + INSERT_WALL) * 1.4142136"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "name": "Floor sketch",
+    "offset": "FLOOR_Z0"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      -46,
+      "WALL_Y1"
+     ],
+     [
+      40,
+      "WALL_Y1"
+     ],
+     [
+      48,
+      37.5
+     ],
+     [
+      112,
+      37.5
+     ],
+     [
+      124,
+      16
+     ],
+     [
+      141,
+      16
+     ],
+     [
+      141,
+      13.5
+     ],
+     [
+      165,
+      13.5
+     ],
+     [
+      165,
+      -13.5
+     ],
+     [
+      141,
+      -13.5
+     ],
+     [
+      141,
+      -16
+     ],
+     [
+      124,
+      -16
+     ],
+     [
+      112,
+      -37.5
+     ],
+     [
+      48,
+      -37.5
+     ],
+     [
+      40,
+      "-(WALL_Y1)"
+     ],
+     [
+      -46,
+      "-(WALL_Y1)"
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "FLOOR_Z1 - FLOOR_Z0",
+    "operation": "new",
+    "name": "Floor",
+    "body_name": "body"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(TOWER_0 + 0.1) - (GEAR_PLATE_X0)",
+    "width": "(WALL_Y1) - (CAN_FACE)",
+    "height": "(AXLE_Z + 10) - (Z_LO)",
+    "corner": [
+     "GEAR_PLATE_X0",
+     "CAN_FACE",
+     "Z_LO"
+    ],
+    "operation": "new",
+    "name": "Gear plate",
+    "body_name": "Side"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + R_OUT) - (X_MOT - R_OUT)",
+    "width": "(21.0 + 0.01) - (CRADLE_Y0 + 2)",
+    "height": "(SPLIT) - (Z_LO)",
+    "corner": [
+     "X_MOT - R_OUT",
+     "CRADLE_Y0 + 2",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Motor saddle 1",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + R_OUT) - (X_MOT - R_OUT)",
+    "width": "(CAN_FACE + 0.01) - (27.0)",
+    "height": "(SPLIT) - (Z_LO)",
+    "corner": [
+     "X_MOT - R_OUT",
+     "27.0",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Motor saddle 2",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + R_OUT) - (X_MOT - R_OUT)",
+    "width": "(CRADLE_Y0 + 2.01) - (CRADLE_Y0)",
+    "height": "(29.0) - (Z_LO)",
+    "corner": [
+     "X_MOT - R_OUT",
+     "CRADLE_Y0",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Back stop",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + EAR_X) - (X_MOT - EAR_X)",
+    "width": "(EAR_Y_0 + EAR_R) - (EAR_Y_0 - EAR_R)",
+    "height": "(SPLIT) - (Z_LO)",
+    "corner": [
+     "X_MOT - EAR_X",
+     "EAR_Y_0 - EAR_R",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Ear bar 1",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "EAR_R",
+    "height": "(SPLIT) - (Z_LO)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_0",
+     "Z_LO"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Ear round 1A",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "EAR_R",
+    "height": "(SPLIT) - (Z_LO)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_0",
+     "Z_LO"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Ear round 1B",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + EAR_X) - (X_MOT - EAR_X)",
+    "width": "(EAR_Y_1 + EAR_R) - (EAR_Y_1 - EAR_R)",
+    "height": "(SPLIT) - (Z_LO)",
+    "corner": [
+     "X_MOT - EAR_X",
+     "EAR_Y_1 - EAR_R",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Ear bar 2",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "EAR_R",
+    "height": "(SPLIT) - (Z_LO)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_1",
+     "Z_LO"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Ear round 2A",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "EAR_R",
+    "height": "(SPLIT) - (Z_LO)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_1",
+     "Z_LO"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Ear round 2B",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "R_POCKET",
+    "height": "(CAN_FACE) - (CRADLE_Y0 - 1)",
+    "base": [
+     "X_MOT",
+     "CRADLE_Y0 - 1",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "new",
+    "name": "Motor pocket",
+    "body_name": "Motor pocket"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(X_MOT + 20) - (X_MOT - 20)",
+    "width": "(60) - (-1)",
+    "height": "(AXLE_Z + CAN_H/2) - (AXLE_Z - CAN_H/2 - 0.2)",
+    "corner": [
+     "X_MOT - 20",
+     "-1",
+     "AXLE_Z - CAN_H/2 - 0.2"
+    ],
+    "operation": "intersect",
+    "name": "Motor pocket flats",
+    "targets": [
+     "Motor pocket"
+    ]
+   }
+  },
+  {
+   "command": "solid.combine",
+   "params": {
+    "target": "Side",
+    "tools": [
+     "Motor pocket"
+    ],
+    "operation": "cut"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "3.6",
+    "height": "(WALL_Y1 + 1) - (CAN_FACE - 1)",
+    "base": [
+     "X_MOT",
+     "CAN_FACE - 1",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "name": "Bearing boss",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(TOWER_1) - (TOWER_0)",
+    "width": "(WALL_Y1) - (TOWER_2)",
+    "height": "(TOWER_TOP) - (Z_LO)",
+    "corner": [
+     "TOWER_0",
+     "TOWER_2",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Axle tower",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(NUT_M5_af/2 + NUT_M5_gap) - (-NUT_M5_af/2 - NUT_M5_gap)",
+    "width": "(REAR_NUT_Y0 + NUT_M5_h_nyl + NUT_M5_gap) - (REAR_NUT_Y0 - NUT_M5_gap)",
+    "height": "(TOWER_TOP + 1) - (AXLE_Z - NUT_M5_af / 1.7320508 - NUT_M5_gap)",
+    "corner": [
+     "-NUT_M5_af/2 - NUT_M5_gap",
+     "REAR_NUT_Y0 - NUT_M5_gap",
+     "AXLE_Z - NUT_M5_af / 1.7320508 - NUT_M5_gap"
+    ],
+    "operation": "cut",
+    "name": "Nut slot",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "RACE_R",
+    "height": "(GY0) - (WALL_Y1 - 0.01)",
+    "base": [
+     "0",
+     "WALL_Y1 - 0.01",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "join",
+    "name": "Race collar",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "AXLE_PRESS / 2",
+    "height": "(GY0 + 1) - (TOWER_2 - 1)",
+    "base": [
+     "0",
+     "TOWER_2 - 1",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "name": "Axle bolt hole",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "STANDOFF_R",
+    "height": "(PCB_Z) - (Z_LO)",
+    "base": [
+     "PCB_X0 + 3.5",
+     "31.5",
+     "Z_LO"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "PCB standoff 1",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(PCB_Z + 1) - (PCB_Z - 9)",
+    "base": [
+     "PCB_X0 + 3.5",
+     "31.5",
+     "PCB_Z - 9"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "PCB insert hole 1",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "STANDOFF_R",
+    "height": "(PCB_Z) - (Z_LO)",
+    "base": [
+     "PCB_X0 + 96.5",
+     "31.5",
+     "Z_LO"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "PCB standoff 2",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(PCB_Z + 1) - (PCB_Z - 9)",
+    "base": [
+     "PCB_X0 + 96.5",
+     "31.5",
+     "PCB_Z - 9"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "PCB insert hole 2",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(SPLIT + 1) - (SPLIT - 7)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_0",
+     "SPLIT - 7"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Ear insert hole 1A",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(SPLIT + 1) - (SPLIT - 7)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_0",
+     "SPLIT - 7"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Ear insert hole 1B",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(SPLIT + 1) - (SPLIT - 7)",
+    "base": [
+     "X_MOT - EAR_X",
+     "EAR_Y_1",
+     "SPLIT - 7"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Ear insert hole 2A",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(SPLIT + 1) - (SPLIT - 7)",
+    "base": [
+     "X_MOT + EAR_X",
+     "EAR_Y_1",
+     "SPLIT - 7"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Ear insert hole 2B",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(BATT_0 + 10) - (BATT_0 - BATT_STOP_gap - BATT_STOP_wall)",
+    "width": "(YO) - (BATT_2 + BATT_STOP_gap)",
+    "height": "(FLOOR_Z1 + BATT_STOP_h) - (Z_LO)",
+    "corner": [
+     "BATT_0 - BATT_STOP_gap - BATT_STOP_wall",
+     "BATT_2 + BATT_STOP_gap",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Battery leg 1",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(BATT_1 + BATT_STOP_gap + BATT_STOP_wall) - (BATT_1 - 10)",
+    "width": "(YO) - (BATT_2 + BATT_STOP_gap)",
+    "height": "(FLOOR_Z1 + BATT_STOP_h) - (Z_LO)",
+    "corner": [
+     "BATT_1 - 10",
+     "BATT_2 + BATT_STOP_gap",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Battery leg 2",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "YZ",
+    "name": "Hook sketch",
+    "offset": "HOOK_x_0 - HOOK_w / 2"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      "YO + 1",
+      "Z_LO"
+     ],
+     [
+      "YO + 1 + HOOK_t",
+      "Z_LO"
+     ],
+     [
+      "YO + 1 + HOOK_t",
+      "HOOK_top - 2.5 - HOOK_tip"
+     ],
+     [
+      "YO + 1 + HOOK_t + HOOK_tip",
+      "HOOK_top - 2.5"
+     ],
+     [
+      "YO + 1 + HOOK_t + HOOK_tip",
+      "HOOK_top"
+     ],
+     [
+      "YO + 1",
+      "HOOK_top"
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "HOOK_w",
+    "operation": "join",
+    "targets": [
+     "Side"
+    ],
+    "name": "Band hook"
+   }
+  },
+  {
+   "command": "solid.pattern.rectangular",
+   "params": {
+    "features": [
+     "Band hook"
+    ],
+    "dir1": [
+     1,
+     0,
+     0
+    ],
+    "count1": 2,
+    "spacing1": "HOOK_x_1 - HOOK_x_0",
+    "name": "Band hooks"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(GEAR_PLATE_X0 + 0.01) - (GEAR_PLATE_X0 - 3.5)",
+    "width": "(WALL_Y1) - (36.0)",
+    "height": "(AXLE_Z + 10) - (Z_LO)",
+    "corner": [
+     "GEAR_PLATE_X0 - 3.5",
+     "36.0",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Gear plate rib",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(SERVO_X - C_X0) - (SERVO_X - C_X1)",
+    "width": "(C_HW) - (C_SLOT)",
+    "height": "(TAB_Z1 - 0.2) - (TAB_Z0 - 0.01)",
+    "corner": [
+     "SERVO_X - C_X1",
+     "C_SLOT",
+     "TAB_Z0 - 0.01"
+    ],
+    "operation": "join",
+    "name": "Servo tab bar rear",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(SERVO_X + C_X1) - (SERVO_X + C_X0)",
+    "width": "(C_HW) - (C_SLOT)",
+    "height": "(TAB_Z1 - 0.2) - (TAB_Z0 - 0.01)",
+    "corner": [
+     "SERVO_X + C_X0",
+     "C_SLOT",
+     "TAB_Z0 - 0.01"
+    ],
+    "operation": "join",
+    "name": "Servo tab bar front",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(SERVO_X - C_XS) - (SERVO_X - C_X1)",
+    "width": "(C_HW) - (C_SIDE)",
+    "height": "(TAB_Z1 - 0.2) - (NOSE_Z1 - 0.01)",
+    "corner": [
+     "SERVO_X - C_X1",
+     "C_SIDE",
+     "NOSE_Z1 - 0.01"
+    ],
+    "operation": "join",
+    "name": "Servo side block rear",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(SERVO_X + C_X1) - (SERVO_X + C_XS)",
+    "width": "(C_HW) - (C_SIDE)",
+    "height": "(TAB_Z1 - 0.2) - (NOSE_Z1 - 0.01)",
+    "corner": [
+     "SERVO_X + C_XS",
+     "C_SIDE",
+     "NOSE_Z1 - 0.01"
+    ],
+    "operation": "join",
+    "name": "Servo side block front",
+    "targets": [
+     "Side"
+    ]
+   }
+  },
+  {
+   "command": "solid.mirror",
+   "params": {
+    "bodies": [
+     "Side"
+    ],
+    "plane": "XZ",
+    "name": "Mirror side"
+   }
+  },
+  {
+   "command": "solid.combine",
+   "params": {
+    "target": "body",
+    "tools": [
+     "Side",
+     "Side (2)"
+    ],
+    "operation": "join",
+    "touching": "one_body"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(BATT_0 - BATT_STOP_gap) - (BATT_0 - BATT_STOP_gap - BATT_STOP_wall)",
+    "width": "(YO) - (-YO)",
+    "height": "(FLOOR_Z1 + BATT_STOP_h) - (Z_LO)",
+    "corner": [
+     "BATT_0 - BATT_STOP_gap - BATT_STOP_wall",
+     "-YO",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Battery end wall 1",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "((BATT_0 - BATT_STOP_gap) + 1) - ((BATT_0 - BATT_STOP_gap - BATT_STOP_wall) - 1)",
+    "width": "(BATT_STOP_notch / 2) - (-BATT_STOP_notch / 2)",
+    "height": "(FLOOR_Z1 + BATT_STOP_h + 1) - (FLOOR_Z1)",
+    "corner": [
+     "(BATT_0 - BATT_STOP_gap - BATT_STOP_wall) - 1",
+     "-BATT_STOP_notch / 2",
+     "FLOOR_Z1"
+    ],
+    "operation": "cut",
+    "name": "Lead notch 1",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(BATT_1 + BATT_STOP_gap + BATT_STOP_wall) - (BATT_1 + BATT_STOP_gap)",
+    "width": "(YO) - (-YO)",
+    "height": "(FLOOR_Z1 + BATT_STOP_h) - (Z_LO)",
+    "corner": [
+     "BATT_1 + BATT_STOP_gap",
+     "-YO",
+     "Z_LO"
+    ],
+    "operation": "join",
+    "name": "Battery end wall 2",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "((BATT_1 + BATT_STOP_gap + BATT_STOP_wall) + 1) - ((BATT_1 + BATT_STOP_gap) - 1)",
+    "width": "(BATT_STOP_notch / 2) - (-BATT_STOP_notch / 2)",
+    "height": "(FLOOR_Z1 + BATT_STOP_h + 1) - (FLOOR_Z1)",
+    "corner": [
+     "(BATT_1 + BATT_STOP_gap) - 1",
+     "-BATT_STOP_notch / 2",
+     "FLOOR_Z1"
+    ],
+    "operation": "cut",
+    "name": "Lead notch 2",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(SERVO_X - C_X0) - (SERVO_X - C_X1)",
+    "width": "(C_HW) - (-C_HW)",
+    "height": "(TAB_Z0) - (NOSE_Z1 - 0.01)",
+    "corner": [
+     "SERVO_X - C_X1",
+     "-C_HW",
+     "NOSE_Z1 - 0.01"
+    ],
+    "operation": "join",
+    "name": "Servo tower rear",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(SERVO_X + C_X1) - (SERVO_X + C_X0)",
+    "width": "(C_HW) - (-C_HW)",
+    "height": "(TAB_Z0) - (NOSE_Z1 - 0.01)",
+    "corner": [
+     "SERVO_X + C_X0",
+     "-C_HW",
+     "NOSE_Z1 - 0.01"
+    ],
+    "operation": "join",
+    "name": "Servo tower front",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "name": "Tower relief R sketch",
+    "offset": "-5"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      "SERVO_X + CHAM_C / 2 + 10.6 - 21.2132034",
+      "(CHAM_C / 2 + 10.6)"
+     ],
+     [
+      "SERVO_X + CHAM_C / 2 + 10.6",
+      "(CHAM_C / 2 + 10.6) - 21.2132034"
+     ],
+     [
+      "SERVO_X + CHAM_C / 2 + 10.6 + 21.2132034",
+      "(CHAM_C / 2 + 10.6)"
+     ],
+     [
+      "SERVO_X + CHAM_C / 2 + 10.6",
+      "(CHAM_C / 2 + 10.6) + 21.2132034"
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "60",
+    "operation": "cut",
+    "targets": [
+     "body"
+    ],
+    "name": "Tower relief R"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "name": "Tower relief L sketch",
+    "offset": "-5"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      "SERVO_X + CHAM_C / 2 + 10.6 - 21.2132034",
+      "-(CHAM_C / 2 + 10.6)"
+     ],
+     [
+      "SERVO_X + CHAM_C / 2 + 10.6",
+      "-(CHAM_C / 2 + 10.6) - 21.2132034"
+     ],
+     [
+      "SERVO_X + CHAM_C / 2 + 10.6 + 21.2132034",
+      "-(CHAM_C / 2 + 10.6)"
+     ],
+     [
+      "SERVO_X + CHAM_C / 2 + 10.6",
+      "-(CHAM_C / 2 + 10.6) + 21.2132034"
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "60",
+    "operation": "cut",
+    "targets": [
+     "body"
+    ],
+    "name": "Tower relief L"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(FAX_X + BEAM_R) - (FAX_X - BEAM_R)",
+    "width": "(KING_Y) - (-KING_Y)",
+    "height": "(BEAM_Z1) - (BEAM_Z0)",
+    "corner": [
+     "FAX_X - BEAM_R",
+     "-KING_Y",
+     "BEAM_Z0"
+    ],
+    "operation": "join",
+    "name": "Steering beam",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "BEAM_R",
+    "height": "(BEAM_Z1) - (BEAM_Z0)",
+    "base": [
+     "FAX_X",
+     "KING_Y",
+     "BEAM_Z0"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Beam end R",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M4_FREE / 2",
+    "height": "(BEAM_Z1 + 1) - (BEAM_Z0 - 1)",
+    "base": [
+     "FAX_X",
+     "KING_Y",
+     "BEAM_Z0 - 1"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Kingpin hole R",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "BEAM_R",
+    "height": "(BEAM_Z1) - (BEAM_Z0)",
+    "base": [
+     "FAX_X",
+     "-KING_Y",
+     "BEAM_Z0"
+    ],
+    "axis": "Z",
+    "operation": "join",
+    "name": "Beam end L",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M4_FREE / 2",
+    "height": "(BEAM_Z1 + 1) - (BEAM_Z0 - 1)",
+    "base": [
+     "FAX_X",
+     "-KING_Y",
+     "BEAM_Z0 - 1"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Kingpin hole L",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(TAB_Z1) - (TAB_Z1 - 0.2 - 7)",
+    "base": [
+     "SERVO_X - C_BX",
+     "-C_BY",
+     "TAB_Z1 - 0.2 - 7"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Servo insert hole 00",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(TAB_Z1) - (TAB_Z1 - 0.2 - 7)",
+    "base": [
+     "SERVO_X - C_BX",
+     "C_BY",
+     "TAB_Z1 - 0.2 - 7"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Servo insert hole 01",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(TAB_Z1) - (TAB_Z1 - 0.2 - 7)",
+    "base": [
+     "SERVO_X + C_BX",
+     "-C_BY",
+     "TAB_Z1 - 0.2 - 7"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Servo insert hole 10",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "M3_INSERT / 2",
+    "height": "(TAB_Z1) - (TAB_Z1 - 0.2 - 7)",
+    "base": [
+     "SERVO_X + C_BX",
+     "C_BY",
+     "TAB_Z1 - 0.2 - 7"
+    ],
+    "axis": "Z",
+    "operation": "cut",
+    "name": "Servo insert hole 11",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(SERVO_X + SERVO_0 / 2 + 0.6) - (SERVO_X - SERVO_0 / 2 - 0.6)",
+    "width": "(SERVO_1 / 2 + 0.6) - (-SERVO_1 / 2 - 0.6)",
+    "height": "(NOSE_Z1 + 0.5) - (FLOOR_Z0 - 1)",
+    "corner": [
+     "SERVO_X - SERVO_0 / 2 - 0.6",
+     "-SERVO_1 / 2 - 0.6",
+     "FLOOR_Z0 - 1"
+    ],
+    "operation": "cut",
+    "name": "Servo cutout",
+    "targets": [
+     "body"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "name": "Cable notch sketch",
+    "offset": "FLOOR_Z0 - 1"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      "SERVO_X + SERVO_0 / 2 + 0.6 - 0.01",
+      -3
+     ],
+     [
+      "SERVO_X + SERVO_0 / 2 + 0.6 - 0.01 + 3",
+      0
+     ],
+     [
+      "SERVO_X + SERVO_0 / 2 + 0.6 - 0.01",
+      3
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "TAB_Z0 + 0.01 - (FLOOR_Z0 - 1)",
+    "operation": "cut",
+    "targets": [
+     "body"
+    ],
+    "name": "Cable notch"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": "(BATT_1 + BATT_STOP_gap) - (BATT_0 - BATT_STOP_gap)",
+    "width": "(BATT_2 + BATT_STOP_gap) - (-BATT_2 - BATT_STOP_gap)",
+    "height": "(FLOOR_Z1 + 1) - (FLOOR_Z1 - BATT_SEAT)",
+    "corner": [
+     "BATT_0 - BATT_STOP_gap",
+     "-BATT_2 - BATT_STOP_gap",
+     "FLOOR_Z1 - BATT_SEAT"
+    ],
+    "operation": "cut",
+    "name": "Battery pocket",
+    "targets": [
+     "body"
+    ]
+   }
+  }
+ ]
+}

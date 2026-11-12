@@ -1,0 +1,174 @@
+{
+ "commands": [
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Tyre body R",
+    "body_name": "tyre_front_R",
+    "radius": "FW_R",
+    "height": "FW_Y1 - FW_Y0",
+    "base": [
+     "FAX_X",
+     "-FW_Y1",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "new"
+   }
+  },
+  {
+   "command": "solid.fillet",
+   "params": {
+    "name": "Tyre shoulders",
+    "body": "tyre_front_R",
+    "edges": [
+     [
+      170,
+      -34,
+      20
+     ],
+     [
+      170,
+      -46,
+      20
+     ]
+    ],
+    "radius": 2
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Bore",
+    "radius": "FRIM_R - TYRE_FIT",
+    "height": "FW_Y1 - FW_Y0 + 2",
+    "base": [
+     "FAX_X",
+     "-(FW_Y1 + 1)",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "tyre_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Lip recess outer",
+    "radius": "FRIM_R + RIM_LIP - TYRE_FIT",
+    "height": 2,
+    "base": [
+     "FAX_X",
+     "-(FW_Y1 + 1)",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "tyre_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Lip recess inner",
+    "radius": "FRIM_R + RIM_LIP - TYRE_FIT",
+    "height": 2,
+    "base": [
+     "FAX_X",
+     "-(FW_Y0 + 1)",
+     "FAX_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "tyre_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "name": "Tread groove",
+    "length": 2,
+    "width": "FW_Y1 - FW_Y0 - 4",
+    "height": 1.4,
+    "center": [
+     "FAX_X + FW_R",
+     "-(FW_Y0 + FW_Y1) / 2",
+     "FAX_Z"
+    ],
+    "operation": "cut",
+    "targets": [
+     "tyre_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.pattern.circular",
+   "params": {
+    "name": "Tread grooves",
+    "features": [
+     "Tread groove"
+    ],
+    "axis": {
+     "origin": [
+      "FAX_X",
+      0,
+      "FAX_Z"
+     ],
+     "dir": [
+      0,
+      1,
+      0
+     ]
+    },
+    "count": 24
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "name": "Key slot",
+    "length": 2.3,
+    "width": "FW_Y1 - FW_Y0 - 2",
+    "height": 1.6,
+    "center": [
+     "FAX_X",
+     "-(FW_Y0 + FW_Y1) / 2",
+     "FAX_Z - (FRIM_R + 0.3)"
+    ],
+    "operation": "cut",
+    "targets": [
+     "tyre_front_R"
+    ]
+   }
+  },
+  {
+   "command": "solid.pattern.circular",
+   "params": {
+    "name": "Tyre keys",
+    "features": [
+     "Key slot"
+    ],
+    "axis": {
+     "origin": [
+      "FAX_X",
+      0,
+      "FAX_Z"
+     ],
+     "dir": [
+      0,
+      1,
+      0
+     ]
+    },
+    "count": 3
+   }
+  }
+ ]
+}

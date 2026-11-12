@@ -1,0 +1,439 @@
+{
+ "commands": [
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "MOD*Z_GEAR/2 - 1.25*MOD",
+    "height": "GEAR_W",
+    "base": [
+     "0",
+     "-RW_Y0",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "new",
+    "body_name": "rim_rear_R",
+    "name": "Gear root disc"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XZ",
+    "offset": "-RW_Y0",
+    "name": "Gear tooth sketch"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      21.57081,
+      -34.57476
+     ],
+     [
+      21.87075,
+      -34.56885
+     ],
+     [
+      21.98564,
+      -34.59819
+     ],
+     [
+      22.10836,
+      -34.63219
+     ],
+     [
+      22.23874,
+      -34.6712
+     ],
+     [
+      22.37664,
+      -34.71553
+     ],
+     [
+      22.5219,
+      -34.76551
+     ],
+     [
+      22.67432,
+      -34.82145
+     ],
+     [
+      22.83374,
+      -34.88366
+     ],
+     [
+      22.99995,
+      -34.95246
+     ],
+     [
+      22.99995,
+      -35.04754
+     ],
+     [
+      22.83374,
+      -35.11634
+     ],
+     [
+      22.67432,
+      -35.17855
+     ],
+     [
+      22.5219,
+      -35.23449
+     ],
+     [
+      22.37664,
+      -35.28447
+     ],
+     [
+      22.23874,
+      -35.3288
+     ],
+     [
+      22.10836,
+      -35.36781
+     ],
+     [
+      21.98564,
+      -35.40181
+     ],
+     [
+      21.87075,
+      -35.43115
+     ],
+     [
+      21.57081,
+      -35.42524
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "distance": "GEAR_W",
+    "operation": "join",
+    "name": "Gear tooth"
+   }
+  },
+  {
+   "command": "solid.pattern.circular",
+   "params": {
+    "features": [
+     "Gear tooth"
+    ],
+    "axis": {
+     "origin": [
+      "0",
+      "-RW_Y0",
+      "AXLE_Z"
+     ],
+     "dir": [
+      0,
+      1,
+      0
+     ]
+    },
+    "count": "Z_GEAR",
+    "name": "Gear teeth"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "offset": "AXLE_Z",
+    "name": "Rim ring sketch"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      "26.5",
+      "-RW_Y0"
+     ],
+     [
+      "RIM_R + RIM_LIP",
+      "-RW_Y0"
+     ],
+     [
+      "RIM_R + RIM_LIP",
+      "-(RW_Y0+1)"
+     ],
+     [
+      "RIM_R",
+      "-(RW_Y0+1)"
+     ],
+     [
+      "RIM_R",
+      "-(RW_Y1-1)"
+     ],
+     [
+      "RIM_R + RIM_LIP",
+      "-(RW_Y1-1)"
+     ],
+     [
+      "RIM_R + RIM_LIP",
+      "-RW_Y1"
+     ],
+     [
+      "26.5",
+      "-RW_Y1"
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.revolve",
+   "params": {
+    "axis": "y",
+    "operation": "join",
+    "name": "Rim ring"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "offset": "AXLE_Z",
+    "name": "Cone outer sketch"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      26.6,
+      -61.9
+     ],
+     [
+      26.6,
+      -58.4
+     ],
+     [
+      20.2,
+      -52
+     ],
+     [
+      16.8,
+      -52
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.revolve",
+   "params": {
+    "axis": "y",
+    "operation": "join",
+    "name": "Cone outer"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "offset": "AXLE_Z",
+    "name": "Cone inner sketch"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      7.4,
+      -51
+     ],
+     [
+      19.9,
+      -51
+     ],
+     [
+      19.9,
+      -52
+     ],
+     [
+      7.4,
+      -64.5
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.revolve",
+   "params": {
+    "axis": "y",
+    "operation": "join",
+    "name": "Cone inner"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": 7.5,
+    "height": "RW_Y1 - GY0",
+    "base": [
+     "0",
+     "-RW_Y1",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "join",
+    "name": "Hub"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "AXLE_FREE/2",
+    "height": "RW_Y1 - GY0 + 2",
+    "base": [
+     "0",
+     "-RW_Y1 - 1",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "name": "Axle bore"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "SEAT_D/2",
+    "height": "BEARING_W + 1",
+    "base": [
+     "0",
+     "-(GY0 + BEARING_W)",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "name": "Bearing seat gear side"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "radius": "SEAT_D/2",
+    "height": "BEARING_W + 1",
+    "base": [
+     "0",
+     "-RW_Y1 - 1",
+     "AXLE_Z"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "name": "Bearing seat outer side"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "plane": "XY",
+    "offset": "AXLE_Z",
+    "name": "Pinion clearance sketch"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "points": [
+     [
+      19.5,
+      "-(RW_Y0 - 0.01)"
+     ],
+     [
+      28.2,
+      "-(RW_Y0 - 0.01)"
+     ],
+     [
+      28.2,
+      "-(RW_Y0 + 0.6)"
+     ],
+     [
+      19.5,
+      "-(RW_Y0 + 0.6)"
+     ]
+    ],
+    "closed": true
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.revolve",
+   "params": {
+    "axis": "y",
+    "operation": "cut",
+    "name": "Pinion clearance"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "length": 2,
+    "width": "RW_Y1 - RW_Y0 - 2",
+    "height": 1.3,
+    "center": [
+     "0",
+     "-(RW_Y0+RW_Y1)/2",
+     "AXLE_Z - RIM_R - 0.15"
+    ],
+    "operation": "join",
+    "name": "Tyre key"
+   }
+  },
+  {
+   "command": "solid.pattern.circular",
+   "params": {
+    "features": [
+     "Tyre key"
+    ],
+    "axis": {
+     "origin": [
+      "0",
+      "0",
+      "AXLE_Z"
+     ],
+     "dir": [
+      0,
+      1,
+      0
+     ]
+    },
+    "count": 3,
+    "name": "Tyre keys"
+   }
+  }
+ ]
+}
