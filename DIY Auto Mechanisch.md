@@ -48,7 +48,7 @@ In v3b hing de servo ondersteboven, met de hoorn tussen de vloer en een brug. Da
 
 ### Beweging in SolidCraft
 
-`CAD/DIY-Auto.sc` heeft revolute joints op de wielen en de fusees. De kingpin-joints lopen van −30° tot +30° (`LOCK`). Sleep een joint in SolidCraft om te sturen; de banden en velgen draaien mee.
+`CAD/DIY-Auto.sc` heeft revolute joints op de vier wielen en de twee kingpins (−30° tot +30°). Je sleept ze met de hand. De stuurstangen en het tandwiel zijn niet gekoppeld en er is geen afspeelbare simulatie. De stuurhoeken controleert `check_all.py`.
 
 ### Maten in dit model
 
