@@ -20,7 +20,7 @@ CAD/ref/LM2596_module.wrl
 result.json
 KiCad/.history/
 # Older gerber revisions; only the newest is published
-KiCad/DIY-Auto_rev[4-7]_gerbers_PCBWay.zip
+KiCad/DIY-Auto_rev[4-8]_gerbers_PCBWay.zip
 # Old design / outdated files, kept locally only
 Fritzing/DIY-Auto_hbrug.fzz
 Scripts/gen_fritzing_hbrug.py
@@ -30,3 +30,5 @@ Firmware/test_drive_hbrug/
 Scripts/gen_breadboard.py
 KiCad/DIY-Auto.kicad_bbrd
 Video/DIYAuto_assembly_v5.mp4
+*.sc.bak
+__pycache__/

@@ -1,8 +1,8 @@
-#3d-printing #electronics #project
+#3d-printen #elektronica #project
 
 Referentieblad voor de RC-auto. Alles wat je tijdens het designen moet kunnen opzoeken.
 
-- **CAD:** `CAD/DIY-Auto.FCStd` (FreeCAD, met simulatie) · [Onshape projectfolder](https://cad.onshape.com/documents?nodeId=4bc9426927f8be523bc07b16&resourceType=folder)
+- **CAD:** `CAD/DIY-Auto.sc` (SolidCraft, met joints) · [Onshape projectfolder](https://cad.onshape.com/documents?nodeId=4bc9426927f8be523bc07b16&resourceType=folder)
 - **Taken:** [[Taken DIY-Auto]]
 - **Onderdelen:** [[DIY Auto BOM]]
 
@@ -19,7 +19,7 @@ Referentieblad voor de RC-auto. Alles wat je tijdens het designen moet kunnen op
 | [[DIY Auto Elektronica]] | schema, H-brug, voeding en eerste keer aanzetten, pinout en stuurtabel, KiCad-scripts |
 | [[DIY Auto Breadboard]] | de 9 bouwstappen van het breadboard (Fritzing) |
 | [[DIY Auto Firmware]] | H-brug-test zonder controller, rijden met de Xbox-controller, instellingen |
-| [[DIY Auto Mechanisch]] | 3D-model, printdelen, sturing, FreeCAD-simulatie, maten in `params.py` |
+| [[DIY Auto Mechanisch]] | 3D-model, printdelen, sturing, SolidCraft-assembly, maten in `params.py` |
 | [[Testblok passingen]] | het testblokje: wat waar in moet, wat je terugmeldt |
 | [[PCB bestellen en solderen]] | PCBWay-bestelling, wat je nog koopt, soldeervolgorde |
 | [[DIY Auto Assemblage]] | monteren na het printen, met een beeld per stap |

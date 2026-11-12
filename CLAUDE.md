@@ -12,7 +12,7 @@ Git: public repo github.com/Eggmansmile/DIY-Auto (main, tag `v1`). Video frames/
 - `sc_build.py <part>` builds one part from its script, `--pair` the L/R pair (thin design + mirror).
 - `export_sc.py --dry` (to `CAD/parts_sc/`) / `--apply` (to `CAD/parts/<n subassembly>/`, +`print/`, rewrites `CAD/manifest.json` + `CAD/BOM.md`); `--manifest` only the manifest/BOM. Non-SolidCraft parts (bolts, motors, servo, PCB) are static STEPs in `CAD/parts`; their metadata lives in `manifest.json`.
 - Dimensions: `params.py`; helpers: `lib.py`. Old build123d generators: `archive_build123d/` (see its README), no longer the source.
-- `check_all.py` = collision/clearance/design-rule check from the STEPs in `CAD/parts`, run after every `--apply`. `plates.py [p1s|a1mini|h2d...]` → `CAD/plates/*.3mf`. `test_fit.py` = fit test block. `gen_drawing.py` = A3 drawing (from the STEPs). `freecad_assembly.py` = FreeCAD 1.1 assembly.
+- `check_all.py` = collision/clearance/design-rule check from the STEPs in `CAD/parts`, run after every `--apply`. `plates.py [p1s|a1mini|h2d...]` → `CAD/plates/*.3mf`. `test_fit.py` = fit test block. `gen_drawing.py` = A3 drawing (from the STEPs).
 - Run with `uv run -p 3.12 --with build123d --with trimesh --with networkx --with bd_warehouse --with rectpack --with lxml python <script>`.
 
 ## Electronics (`Scripts/`, output in `KiCad/`, `Fritzing/`)

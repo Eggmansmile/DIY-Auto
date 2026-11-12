@@ -25,7 +25,7 @@ Schematic: [docs/schematic.svg](docs/schematic.svg) (PDF: [KiCad/DIY-Auto_schema
 | Folder | What |
 |---|---|
 | `Scripts/cad/` | SolidCraft CAD (`CAD/DIY-Auto.sc`). Dimensions in `params.py`, `export_sc.py` writes STEP/STL to `CAD/parts/`, `check_all.py` checks collisions, `plates.py` makes print plates. |
-| `CAD/` | Generated STEP/STL per subassembly (`print/` = print orientation), print plates (`.3mf`), FreeCAD assembly, `BOM.md`. |
+| `CAD/` | Generated STEP/STL per subassembly (`print/` = print orientation), print plates (`.3mf`), SolidCraft master `DIY-Auto.sc`, `BOM.md`. |
 | `Scripts/` | `gen_schematic.py` → `gen_pcb.py` → `route_pcb.py` → `silk_pcb.py` (KiCad), `gen_fritzing.py` (breadboard). |
 | `KiCad/` | Schematic, PCB, gerbers. |
 | `Fritzing/` | Breadboard layout for testing before the PCB arrives. |

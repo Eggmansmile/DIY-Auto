@@ -1,4 +1,4 @@
-#3d-printing #cad #project
+#3d-printen #cad #project
 
 *[[DIY Auto]] · [[DIY Auto Elektronica|Elektronica]] · [[DIY Auto Breadboard|Breadboard]] · [[DIY Auto Firmware|Firmware]] · [[DIY Auto Mechanisch|Mechanisch]] · [[DIY Auto BOM|BOM]] · [[Taken DIY-Auto|Taken]]*
 
@@ -7,18 +7,19 @@
 ![[DIYAuto_tekening_v4.png]]
 *Tekening v4 (A3, 1:1): projectie van het CAD-model. PDF: `Drawings/DIY-Auto_v4.pdf`.*
 
-3D-model per deelsysteem in `Scripts/cad/` (build123d). Alle maten staan in `Scripts/cad/params.py`. Opnieuw bouwen en de Blender-file maken:
+Het 3D-model is een SolidCraft-assembly: `CAD/DIY-Auto.sc` (master, vijf mappen: banden, body, PCB, motor en aandrijving, voorkant en sturing) met de printdelen als gelinkte designs in `CAD/solidcraft/`. Alle maten staan in `Scripts/cad/params.py`. Pas een maat aan, bouw de designs opnieuw en exporteer:
 
 ```
 cd Scripts/cad
-~/.local/bin/uv run -p 3.12 --with build123d --with bd_warehouse --with trimesh --with networkx python assemble.py     # STL + STEP + BOM
-~/.local/bin/uv run -p 3.12 --with build123d --with bd_warehouse python check_all.py    # botsingen, sturen, montagepad servo
+python3 sc_build.py <deel>                # één deel bouwen en vergelijken met de STEP
+~/.local/bin/uv run -p 3.12 --with build123d --with trimesh --with networkx python export_sc.py --apply              # STEP + STL per deel, manifest.json, BOM.md
+~/.local/bin/uv run -p 3.12 --with build123d --with trimesh --with networkx --with bd_warehouse --with rectpack --with lxml python check_all.py   # botsingen, sturen, montagepad servo
 for p in p1s p1s-alles a1mini; do ~/.local/bin/uv run -p 3.12 --with trimesh --with rectpack --with networkx --with lxml python plates.py $p; done
 ~/.local/bin/uv run -p 3.12 --with build123d --with bd_warehouse --with matplotlib python gen_drawing.py   # tekening A3
 ~/.local/bin/uv run -p 3.12 --with build123d --with bd_warehouse python test_fit.py      # testblok
 ```
 
-Uitvoer: `CAD/parts/<assembly>/` (STEP + STL per deel, één map per assembly), `CAD/parts/<assembly>/print/` (de printdelen al gedraaid voor het printbed), `CAD/plates/`, `CAD/DIY-Auto.FCStd` (FreeCAD-assembly). `check_all.py` moet overal 0,000 mm³ geven.
+Uitvoer: `CAD/parts/<assembly>/` (STEP + STL per deel, één map per assembly), `CAD/parts/<assembly>/print/` (de printdelen al gedraaid voor het printbed), `CAD/plates/`. `check_all.py` moet overal 0,000 mm³ geven. De oude build123d-generators staan in `Scripts/cad/archive_build123d/`.
 
 De body bestaat uit twee printdelen: het chassis (153 × 94 mm) en de neus (77 × 72 mm). Beide passen op de A1 mini. Ze zitten vast met 2× M3×10 in liggende inserts in de flens van het chassis. De neus draagt de sturing, zodat je bij een nieuwe sturing enkel de neus opnieuw print. Geen enkel deel heeft support nodig. De klem heeft bovenaan een brug van 16,6 mm; die lukt op de Bambu-printers. Het accupakket ligt tussen stops van 8 mm en zit vast met een elastiek over 4 haakjes. In de eindwanden zit een uitsparing voor de draden.
 
@@ -35,9 +36,9 @@ Wiel aan **twee** kanten lageren, niet aan één plaatje.
 
 ### Sturing (v4)
 
-De servo staat rechtop op 2 paaltjes, met de as naar boven. Zijn lijf zakt door een uitsparing in de vloer van de neus, tot 5,0 mm boven de grond; de hoorn ligt op z = 32–36. Servomaten (2026-11-05) uit het model [servo-s2309s.scad](https://github.com/GlenSearle/SpaceBaseStationForAndroid/blob/master/Printables/servo-s2309s.scad): lijf 23 × 12,3 × 22, lipjes 31,8 × 2,3 op 15,5, ronde top Ø12,3 tot 25,5, spline-top 29,5, as 5,0 van het lijfeinde; spline Ø4,76 gemeten. Er bestaat geen officiële maattekening. De stuurarmen zitten op het bovenste lipje van de fusee, met een bus tot op dezelfde hoogte als de hoorn. Eén hoornarm wijst naar voren (gat op r = 15,2 mm, ontwerpmaat van de geprinte hoorn), en beide stuurstangen zitten op dezelfde M3-pen: de rechter ligt op de linker. De stangen lopen bijna evenwijdig aan de as, dus loodrecht op de stuurarmen. Waarom deze vorm: zie [[Motoren en servo's koppelen]]. De eerste versie liep na 8° vast; de FreeCAD-simulatie toonde dat.
+De servo staat rechtop op 2 paaltjes, met de as naar boven. Zijn lijf zakt door een uitsparing in de vloer van de neus, tot 5,0 mm boven de grond; de hoorn ligt op z = 32–36. Servomaten (2026-11-05) uit het model [servo-s2309s.scad](https://github.com/GlenSearle/SpaceBaseStationForAndroid/blob/master/Printables/servo-s2309s.scad): lijf 23 × 12,3 × 22, lipjes 31,8 × 2,3 op 15,5, ronde top Ø12,3 tot 25,5, spline-top 29,5, as 5,0 van het lijfeinde; spline Ø4,76 gemeten. Er bestaat geen officiële maattekening. De stuurarmen zitten op het bovenste lipje van de fusee, met een bus tot op dezelfde hoogte als de hoorn. Eén hoornarm wijst naar voren (gat op r = 15,2 mm, ontwerpmaat van de geprinte hoorn), en beide stuurstangen zitten op dezelfde M3-pen: de rechter ligt op de linker. De stangen lopen bijna evenwijdig aan de as, dus loodrecht op de stuurarmen. Waarom deze vorm: zie [[Motoren en servo's koppelen]]. De eerste versie liep na 8° vast; de simulatie toonde dat.
 
-In v3b hing de servo ondersteboven, met de hoorn tussen de vloer en een brug. Dat ontwerp was niet te monteren: de hoorn kon er niet meer op als de servo vastzat, en een servo mét hoorn botste tegen de brug (`mount_check()` in `steering.py` controleert dit nu). De geometrie in het bovenaanzicht bleef gelijk, dus de stuurhoeken ook.
+In v3b hing de servo ondersteboven, met de hoorn tussen de vloer en een brug. Dat ontwerp was niet te monteren: de hoorn kon er niet meer op als de servo vastzat, en een servo mét hoorn botste tegen de brug (`mount_check()` in `check_all.py` controleert dit nu). De geometrie in het bovenaanzicht bleef gelijk, dus de stuurhoeken ook.
 
 ![[DIYAuto_sturing_iso.gif|420]] ![[DIYAuto_sturing_onder.gif|360]]
 *Sturing (v3b, ondersteboven; de hoeken gelden ook voor v4): hoorn ±17,5° → binnenwiel 30°, buitenwiel 26° (rechts: onderaanzicht, links en rechts gespiegeld).*
@@ -45,14 +46,9 @@ In v3b hing de servo ondersteboven, met de hoorn tussen de vloer en een brug. Da
 ![[DIYAuto_aandrijving_9to1.gif|380]]
 *Aandrijving: rondsel 10T op de motor, tandwiel 90T in de velg. Eén toer van het rondsel is 40° van het wiel.*
 
-### FreeCAD: assembly met joints en simulatie
+### Beweging in SolidCraft
 
-```
-cd Scripts/cad && ~/.local/bin/uv run -p 3.12 --with build123d --with bd_warehouse python freecad_export.py
-cd ../.. && freecad Scripts/cad/freecad_assembly.py
-```
-
-Maakt `CAD/DIY-Auto.FCStd`: 12 bewegende groepen, 16 joints (v4 op 2026-10-01, FreeCAD 1.1.4 op de desktop). In de Assembly-boom: dubbelklik op **Sim_sturen** of **Sim_rijden** en druk op play. Tandwielen koppelen enkel in een simulatie, niet als je met de muis sleept.
+`CAD/DIY-Auto.sc` heeft revolute joints op de wielen en de fusees. De kingpin-joints lopen van −30° tot +30° (`LOCK`). Sleep een joint in SolidCraft om te sturen; de banden en velgen draaien mee.
 
 ### Maten in dit model
 

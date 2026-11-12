@@ -20,4 +20,4 @@ Elk gat is een maat uit `Scripts/cad/params.py`. Waar de passing kritisch is, st
 | **D M5 MOER** | 8.0 · 8.2 · 8.4 | M5-moer (DIN 934) | de moer er met de vinger in gaat en niet kan meedraaien | zeskant in de fusee |
 | **D NYLOCK** | 8.2 × 5.4 | M5-nylock, plat | hij erin valt en niet kan draaien | gleuf in de toren |
 
-**Terugmelden**, bv.: "M3 4.2 goed · lager 10.05 te krap, 10.15 perst goed · 5.1 wiebelt · moer 8.0 te krap, 8.2 goed". Dan pas ik `params.py` aan, en `assemble.py` maakt alle onderdelen opnieuw met die maten.
+**Terugmelden**, bv.: "M3 4.2 goed · lager 10.05 te krap, 10.15 perst goed · 5.1 wiebelt · moer 8.0 te krap, 8.2 goed". Dan pas ik `params.py` aan, en `export_sc.py --apply` maakt alle onderdelen opnieuw met die maten.
